@@ -17,6 +17,7 @@
 <meta name="twitter:card" content="summary">
 <link rel="preload" href="fonts/libre-caslon-display-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/libre-caslon-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="site.css">
 
 <script type="application/ld+json">
 {
@@ -74,6 +75,9 @@
         "recognizedBy": { "@type": "CollegeOrUniversity", "name": "University of London" }
       },
       "knowsAbout": [
+        "Criminal law",
+        "Family law",
+        "Corporate litigation and compliance",
         "Constitutional law",
         "Basic structure doctrine",
         "Public international law",
@@ -202,198 +206,19 @@
   ]
 }
 </script>
-
-<style>
-@font-face { font-family: "Caslon Display"; src: url("fonts/libre-caslon-display-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: "Caslon Text"; src: url("fonts/libre-caslon-text-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: "Caslon Text"; src: url("fonts/libre-caslon-text-latin-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
-@font-face { font-family: "Franklin"; src: url("fonts/libre-franklin-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
-
-:root {
-  color-scheme: light;
-  --paper: #FFFFFF;
-  --stone: #F4F3F0;
-  --ink: #231F1F;
-  --muted: #5F5957;
-  --gold: #8A6126;
-  --gold-line: #B48338;
-  --rule: #DDD9D2;
-  --display: "Caslon Display", "Caslon Text", "Big Caslon", Georgia, serif;
-  --text: "Caslon Text", "Big Caslon", Georgia, serif;
-  --ui: "Franklin", "Franklin Gothic Medium", "Helvetica Neue", Arial, sans-serif;
-  --margin-col: 13rem;
-}
-*, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--text); font-size: 1.0625rem; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-img { max-width: 100%; height: auto; }
-a { color: inherit; text-decoration-color: var(--gold-line); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
-a:hover { color: var(--gold); }
-:focus-visible { outline: 2px solid var(--gold-line); outline-offset: 3px; }
-h1, h2, h3, h4, p, ul, ol, dl, dd, address { margin: 0; padding: 0; font-style: normal; }
-ul, ol { list-style: none; }
-.wrap { max-width: 72rem; margin-inline: auto; padding-inline: clamp(1.25rem, 4vw, 2.5rem); }
-.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: #fff; padding: 0.6rem 1rem; font-family: var(--ui); font-size: 0.9rem; z-index: 20; }
-.skip:focus { left: 0; }
-
-/* Top bar */
-.topbar { position: sticky; top: 0; z-index: 10; background: var(--paper); border-bottom: 1px solid var(--rule); }
-.topbar .wrap { display: flex; align-items: baseline; justify-content: space-between; gap: 2rem; padding-block: 0.9rem; }
-.brand { font-family: var(--display); font-size: 1.3rem; line-height: 1.2; text-decoration: none; white-space: nowrap; }
-.nav { display: flex; gap: 1.6rem; overflow-x: auto; scrollbar-width: none; font-family: var(--ui); font-size: 0.875rem; }
-.nav::-webkit-scrollbar { display: none; }
-.nav a { text-decoration: none; color: var(--muted); white-space: nowrap; padding-block: 0.2rem; }
-.nav a:hover { color: var(--ink); }
-
-/* Hero */
-.hero { padding-block: clamp(3rem, 8vw, 6rem) clamp(3rem, 7vw, 5rem); }
-.hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 21rem); gap: clamp(2rem, 6vw, 5rem); align-items: center; }
-.hero h1 { font-family: var(--display); font-weight: 400; font-size: clamp(3.1rem, 8.4vw, 6.25rem); line-height: 0.98; letter-spacing: -0.01em; }
-.fullname { margin-top: 1rem; font-style: italic; font-size: 1.2rem; color: var(--muted); }
-.calling { margin-top: 1.75rem; max-width: 34rem; font-size: 1.2rem; line-height: 1.55; }
-.firm { margin-top: 2.25rem; padding-top: 1.75rem; border-top: 1px solid var(--ink); display: flex; align-items: center; gap: 1.1rem; max-width: 34rem; }
-.firm img { width: 4rem; height: auto; flex: none; }
-.firm-role { font-family: var(--display); font-size: 1.55rem; line-height: 1.2; }
-.firm-place { margin-top: 0.25rem; font-family: var(--ui); font-size: 0.875rem; color: var(--muted); }
-.also { margin-top: 1.25rem; max-width: 34rem; font-family: var(--ui); font-size: 0.9375rem; line-height: 1.55; color: var(--muted); }
-.also li + li { margin-top: 0.2rem; }
-.also b { font-weight: 500; color: var(--ink); }
-.actions { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
-.btn { display: inline-block; font-family: var(--ui); font-size: 0.9375rem; font-weight: 500; line-height: 1; padding: 0.9rem 1.3rem; border: 1px solid var(--ink); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; }
-.btn-solid { background: var(--ink); color: #fff; }
-.btn:hover { border-color: var(--gold); color: var(--gold); }
-.btn-solid:hover { background: var(--gold); color: #fff; }
-.portrait { display: block; width: 100%; }
-
-/* Sections: heading in the margin, as in a law report */
-.section { border-top: 1px solid var(--rule); padding-block: clamp(3rem, 7vw, 5rem); }
-.section > .wrap { display: grid; grid-template-columns: var(--margin-col) minmax(0, 1fr); column-gap: clamp(2rem, 5vw, 4rem); }
-.section h2 { font-family: var(--display); font-weight: 400; font-size: 2rem; line-height: 1.15; align-self: start; position: sticky; top: 5rem; }
-.section h2::after { content: ""; display: block; width: 2.25rem; height: 1px; background: var(--gold-line); margin-top: 1rem; }
-.section[id] { scroll-margin-top: 3.5rem; }
-.intro { max-width: 40rem; color: var(--muted); margin-bottom: 2.25rem; }
-h3 { font-family: var(--text); font-weight: 400; font-style: italic; font-size: 1.35rem; line-height: 1.3; margin: 3rem 0 0.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--ink); }
-.body > h3:first-child, .intro + h3 { margin-top: 0; }
-h4 { font-family: var(--text); font-weight: 400; font-size: 1.15rem; line-height: 1.4; }
-
-/* Profile */
-.profile { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 17rem); gap: clamp(2rem, 4vw, 3.5rem); }
-.prose p { max-width: 38rem; }
-.prose p + p { margin-top: 1.1rem; }
-.prose p:first-child { font-size: 1.2rem; line-height: 1.6; }
-.panel + .panel { margin-top: 2.25rem; }
-.panel-title { font-style: italic; font-size: 1.1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--ink); margin-bottom: 0.4rem; }
-.areas li, .creds > div { padding-block: 0.55rem; border-bottom: 1px solid var(--rule); font-size: 0.95rem; line-height: 1.45; }
-.creds dt { font-family: var(--ui); font-size: 0.8125rem; color: var(--gold); }
-.creds small { display: block; font-family: var(--ui); font-size: 0.8125rem; color: var(--muted); margin-top: 0.15rem; }
-
-/* Dated entries */
-.ledger > li, .works > li { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); column-gap: 1.5rem; padding-block: 1.15rem; border-bottom: 1px solid var(--rule); }
-.works > li { grid-template-columns: 4rem minmax(0, 1fr); }
-.ledger .d, .works .y { font-family: var(--ui); font-size: 0.875rem; color: var(--gold); padding-top: 0.3rem; font-variant-numeric: tabular-nums; }
-.org { font-style: italic; margin-top: 0.1rem; }
-.desc, .earlier { margin-top: 0.4rem; font-size: 0.97rem; line-height: 1.6; color: var(--muted); max-width: 40rem; }
-.earlier b { font-weight: 400; color: var(--ink); }
-.meta { margin-top: 0.2rem; font-size: 0.97rem; color: var(--muted); }
-.links { margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.3rem 1.25rem; font-family: var(--ui); font-size: 0.875rem; }
-.cite { margin-top: 0.5rem; font-family: var(--ui); font-size: 0.875rem; }
-.cite summary { cursor: pointer; color: var(--muted); width: fit-content; }
-.cite p { margin-top: 0.4rem; padding: 0.75rem 1rem; background: var(--stone); font-family: var(--text); font-size: 0.95rem; line-height: 1.55; }
-.footnote { margin-top: 1.5rem; font-family: var(--ui); font-size: 0.8125rem; color: var(--muted); }
-
-/* Featured article */
-.feature { background: var(--stone); padding: clamp(1.5rem, 3vw, 2.25rem); margin-bottom: 3rem; }
-.feature .label, .feature .yr, .feature .jr { font-family: var(--ui); font-size: 0.875rem; color: var(--muted); }
-.feature .label { color: var(--gold); font-weight: 500; }
-.feature .label::after, .feature .yr::after { content: ","; }
-.feature h4 { font-family: var(--display); font-size: clamp(1.5rem, 2.6vw, 1.95rem); line-height: 1.22; margin-top: 0.75rem; max-width: 38rem; }
-.feature h4 + p { margin-top: 0.9rem; max-width: 40rem; color: var(--muted); font-size: 1rem; }
-
-/* Commentary */
-.outlet-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.25rem 1.5rem; margin-top: 3rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--ink); }
-.outlet:first-of-type .outlet-head { margin-top: 0; }
-.outlet-head h3 { margin: 0; padding: 0; border: 0; }
-.outlet-head span, .outlet-head a { font-family: var(--ui); font-size: 0.875rem; color: var(--muted); }
-.columns > li { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); column-gap: 1.5rem; padding-block: 0.8rem; border-bottom: 1px solid var(--rule); line-height: 1.45; }
-.columns time { font-family: var(--ui); font-size: 0.875rem; color: var(--gold); padding-top: 0.2rem; font-variant-numeric: tabular-nums; }
-.columns a { text-decoration: none; }
-.columns a:hover { text-decoration: underline; }
-
-/* Recognition */
-.honours { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 3rem; }
-.honours li { padding-block: 1.1rem; border-bottom: 1px solid var(--rule); }
-.honours strong { display: block; font-weight: 400; font-size: 1.1rem; line-height: 1.4; }
-.honours span { display: block; margin-top: 0.3rem; font-size: 0.95rem; line-height: 1.55; color: var(--muted); }
-
-/* Offices */
-.offices-band { background: var(--stone); }
-.firm-line { display: flex; align-items: center; gap: 1.1rem; padding-bottom: 1.75rem; border-bottom: 1px solid var(--ink); }
-.firm-line img { width: 4.5rem; flex: none; }
-.firm-line .name { font-family: var(--display); font-size: 1.75rem; line-height: 1.2; }
-.firm-line .sub { font-family: var(--ui); font-size: 0.875rem; color: var(--muted); margin-top: 0.2rem; }
-.offices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 3rem; }
-.offices li { padding-block: 1.35rem; border-bottom: 1px solid var(--rule); }
-.offices .where { font-family: var(--ui); font-size: 0.875rem; font-weight: 500; color: var(--gold); }
-.offices address { margin-top: 0.3rem; font-size: 1.1rem; line-height: 1.5; max-width: 20rem; }
-
-/* Contact */
-.contact { background: var(--ink); color: #fff; padding-block: clamp(3rem, 7vw, 5rem); scroll-margin-top: 3.5rem; }
-.contact .wrap { display: grid; grid-template-columns: var(--margin-col) minmax(0, 1fr); column-gap: clamp(2rem, 5vw, 4rem); }
-.contact h2 { font-family: var(--display); font-weight: 400; font-size: 2rem; line-height: 1.15; }
-.contact h2::after { content: ""; display: block; width: 2.25rem; height: 1px; background: var(--gold-line); margin-top: 1rem; }
-.contact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 3rem; }
-.contact .note { max-width: 26rem; color: #CFCAC5; margin-bottom: 1.5rem; }
-.contact dl > div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); column-gap: 1rem; padding-block: 0.7rem; border-bottom: 1px solid #4A4443; }
-.contact dt { font-family: var(--ui); font-size: 0.875rem; color: #D2A766; padding-top: 0.2rem; }
-.contact dd { overflow-wrap: anywhere; }
-.contact a { text-decoration-color: #7A6240; }
-.contact a:hover { color: #E3BE84; }
-.contact .btn { border-color: #fff; color: #fff; }
-.contact .btn-solid { background: #fff; color: var(--ink); }
-.contact .btn:hover { border-color: #E3BE84; color: #E3BE84; }
-.contact .btn-solid:hover { background: #E3BE84; color: var(--ink); }
-
-footer.site { background: var(--ink); color: #CFCAC5; border-top: 1px solid #4A4443; font-family: var(--ui); font-size: 0.8125rem; }
-footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 2rem; padding-block: 1.25rem; }
-
-@media (max-width: 60rem) {
-  .section > .wrap, .contact .wrap { grid-template-columns: minmax(0, 1fr); }
-  .section h2, .contact h2 { position: static; margin-bottom: 2rem; }
-  .profile { grid-template-columns: minmax(0, 1fr); }
-}
-@media (max-width: 46rem) {
-  .hero .wrap { grid-template-columns: minmax(0, 1fr); }
-  .hero-portrait { order: -1; max-width: 13rem; }
-  .honours, .offices, .contact-grid { grid-template-columns: minmax(0, 1fr); }
-  .ledger > li, .columns > li { grid-template-columns: minmax(0, 1fr); row-gap: 0.15rem; }
-  .ledger .d, .columns time { padding-top: 0; }
-  .works > li { grid-template-columns: 3.25rem minmax(0, 1fr); column-gap: 1rem; }
-  .topbar .wrap { flex-direction: column; gap: 0.4rem; padding-block: 0.7rem; }
-  .nav { width: 100%; gap: 1.25rem; }
-  .section[id], .contact { scroll-margin-top: 5.5rem; }
-  .contact dl > div { grid-template-columns: minmax(0, 1fr); }
-}
-@media print {
-  .topbar, .actions { display: none; }
-  .contact, footer.site { background: #fff; color: #000; }
-}
-</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="topbar">
   <div class="wrap">
-    <a class="brand" href="#top">Ghalib Naseer</a>
-    <nav class="nav" aria-label="Sections">
-      <a href="#profile">Profile</a>
-      <a href="#appointments">Appointments</a>
-      <a href="#scholarship">Scholarship</a>
-      <a href="#commentary">Commentary</a>
-      <a href="#advocacy">Advocacy</a>
-      <a href="#recognition">Recognition</a>
-      <a href="#offices">Offices</a>
+    <a class="brand" href="./">Ghalib Naseer</a>
+    <nav class="nav" aria-label="Site">
+      <a href="./" aria-current="page">Home</a>
+      <a href="index.html#practice">Practice</a>
+      <a href="publications.html">Publications</a>
+      <a href="commentary.html">Commentary</a>
+      <a href="career.html">Career</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -418,7 +243,7 @@ footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
       </ul>
       <div class="actions">
         <a class="btn btn-solid" href="#contact">Get in touch</a>
-        <a class="btn" href="#scholarship">Read the scholarship</a>
+        <a class="btn" href="publications.html">Read the publications</a>
       </div>
     </div>
     <div class="hero-portrait">
@@ -431,6 +256,20 @@ footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
 </section>
 
 <main id="main">
+
+  <section class="section" id="practice" aria-labelledby="practice-h">
+    <div class="wrap">
+      <h2 id="practice-h">Practice</h2>
+      <div class="body">
+      <ul class="practice">
+        <li><h3>Criminal Law</h3><p>Bail, trial and appellate work in criminal matters.</p></li>
+        <li><h3>Family Law</h3><p>Marriage and its dissolution, maintenance, custody and guardianship.</p></li>
+        <li><h3>Corporate Litigation and Compliance</h3><p>Commercial disputes, company and LLP incorporation, and regulatory filings.</p></li>
+      </ul>
+      <p class="instruct">Instructions are taken through FLC &amp; Associates LLP at its offices in Multan, Lahore and Rawalpindi. <a href="#contact">Get in touch</a>.</p>
+      </div>
+    </div>
+  </section>
 
   <section class="section" id="profile" aria-labelledby="profile-h">
     <div class="wrap">
@@ -446,7 +285,7 @@ footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
         </div>
         <aside>
           <div class="panel">
-            <p class="panel-title">Areas of practice and research</p>
+            <p class="panel-title">Research interests</p>
             <ul class="areas">
               <li>Constitutional law and the basic structure doctrine</li>
               <li>Public international law</li>
@@ -474,9 +313,53 @@ footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
     </div>
   </section>
 
-  <section class="section" id="appointments" aria-labelledby="appointments-h">
+  <section class="section" id="work" aria-labelledby="work-h">
     <div class="wrap">
-      <h2 id="appointments-h">Appointments</h2>
+      <h2 id="work-h">Selected work</h2>
+      <div class="body">
+      <article class="feature" aria-label="Featured article">
+        <div>
+          <span class="label">Latest article</span>
+          <span class="yr">2026</span>
+          <span class="jr">Pakistan Journal of Law, Analysis and Wisdom, vol 5, issue 3, pp 141–164</span>
+        </div>
+        <div>
+          <h4>Unmaking the Constitution’s Core: The Twenty-Seventh Amendment, Judicial Independence and the Basic Structure Doctrine in Pakistan</h4>
+          <p>Traces the Supreme Court of Pakistan’s move from rejecting the basic structure doctrine to recognising enforceable limits on Parliament’s constituent power, compares India, Bangladesh, Germany and Turkey, and uses the Twenty-Seventh Amendment as a stress test for judicial independence, separation of powers and civilian supremacy.</p>
+          <p class="links"><a href="https://pjlaw.com.pk/index.php/Journal/article/view/v5i3-141-164">Read in the journal</a></p>
+        </div>
+      </article>
+      <ol class="works">
+        <li>
+          <span class="y">2026</span>
+          <div class="w">
+            <h4><a href="https://www.thenews.pk/print/1447248-when-the-boomerang-returns">When the Boomerang Returns</a></h4>
+            <p class="meta">Opinion, <i>The News International</i>, 7 November 2026</p>
+          </div>
+        </li>
+        <li>
+          <span class="y">2026</span>
+          <div class="w">
+            <h4><a href="https://issra.pk/infographics/Infographic-Indus-Abeyance.html">India an Outlier in Customary International Law vis-à-vis Indus Waters Treaty</a></h4>
+            <p class="meta">Interactive visual, Centre of Excellence for International Law (CEIL), ISSRA, National Defence University</p>
+          </div>
+        </li>
+        <li>
+          <span class="y">2025</span>
+          <div class="w">
+            <h4><a href="https://jil.ndu.edu.pk/site/article/view/231">Contemporary Hydrological Weaponization: Strategic Fallout of the Indus Basin</a></h4>
+            <p class="meta">With Mirza Shahzaib Muhammad Khan. <i>Journal of International Law</i>, National Defence University</p>
+          </div>
+        </li>
+      </ol>
+      <p class="more"><a href="publications.html">All publications</a><a href="commentary.html">All commentary</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="positions" aria-labelledby="positions-h">
+    <div class="wrap">
+      <h2 id="positions-h">Current positions</h2>
       <div class="body">
       <h3>Practice and faculty</h3>
       <ol class="ledger">
@@ -524,352 +407,7 @@ footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
           </div>
         </li>
       </ol>
-
-      <h3>Previous appointments</h3>
-      <ol class="ledger">
-        <li>
-          <span class="d">Aug – Sep 2026</span>
-          <div class="b">
-            <h4>Researcher</h4>
-            <p class="org">Centre of Excellence in International Law (CEIL), ISSRA, National Defence University, Islamabad</p>
-            <p class="desc">An interactive visual study of transboundary water systems and state practice on the rights of lower riparian states, and a research insight on algorithmic governance under the EU Digital Services Act.</p>
-            <p class="links"><a href="https://issra.pk/infographics/Infographic-Indus-Abeyance.html">View the interactive visual</a></p>
-          </div>
-        </li>
-        <li>
-          <span class="d">Nov 2024 – Sep 2026</span>
-          <div class="b">
-            <h4>Student Ambassador</h4>
-            <p class="org">University of London</p>
-            <p class="desc">Liaison between the University, its teaching centres and students in Pakistan. Co-authored the first Student Ambassador Handbook.</p>
-          </div>
-        </li>
-        <li>
-          <span class="d">Aug 2021 – Aug 2026</span>
-          <div class="b">
-            <h4>Co-founder and Director General</h4>
-            <p class="org">Spark of Hope, Lahore</p>
-            <p class="desc">A student-led nationwide non-profit that began as a relief effort after the 2022 floods. Ran medical camps and distributed clothes, supplies and rations, surveying 17 flood-affected sites in person. Led eight projects, including safe drinking water campaigns in the Thal Desert, education initiatives for children in rural areas and ration drives.</p>
-          </div>
-        </li>
-        <li>
-          <span class="d">Sep 2025 – Aug 2026</span>
-          <div class="b">
-            <h4>Managing Editor</h4>
-            <p class="org">LEAP Pakistan (Legal Education Access Portal)</p>
-            <p class="desc">Led national research initiatives, article reviews and publication projects.</p>
-          </div>
-        </li>
-        <li>
-          <span class="d">Sep 2025 – Apr 2026</span>
-          <div class="b">
-            <h4>Teaching Assistant, Public Law; Vice President, International Humanitarian Law Society</h4>
-            <p class="org">Pakistan College of Law, Lahore</p>
-            <p class="desc">Tutorials on the Level 4 Public Law module of the University of London LLB. Ran IHL seminars, coached IHL moot teams and gave IHL workshops for A Level students across Lahore.</p>
-          </div>
-        </li>
-        <li>
-          <span class="d">Feb 2025 – Feb 2026</span>
-          <div class="b">
-            <h4>Managing Editor</h4>
-            <p class="org">The Monthly Wukkla Ittehad, Multan</p>
-            <p class="desc">Edited around 50 op-eds by senior lawyers and legal academics for one of South Punjab’s largest lawyer-focused newspapers.</p>
-          </div>
-        </li>
-        <li>
-          <span class="d">Sep 2024 – Sep 2025</span>
-          <div class="b">
-            <h4>Research Fellow; President, Law Review Society; Managing Editor</h4>
-            <p class="org">The Institute of Legal Studies (TILS), Lahore</p>
-            <p class="desc">The first student across all TILS campuses appointed Research Fellow. Revived the <i>TILS Law Review</i> after ten years, was a founding member of the <i>TILS Journal of Law and Social Sciences</i>, and reviewed around 60 submissions across two editions.</p>
-          </div>
-        </li>
-        <li>
-          <span class="d">May 2024 – May 2025</span>
-          <div class="b">
-            <h4>Intern</h4>
-            <p class="org">Law Office of Mirza Aziz Akbar Baig, former Vice-Chairman, Pakistan Bar Council, Multan</p>
-            <p class="desc">Drafting and litigation support before the District Courts, the High Court and the Supreme Court of Pakistan.</p>
-          </div>
-        </li>
-      </ol>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="scholarship" aria-labelledby="scholarship-h">
-    <div class="wrap">
-      <h2 id="scholarship-h">Scholarship</h2>
-      <div class="body">
-      <p class="intro">Published work on constitutional amendment, judicial power, international law and legal theory.</p>
-      <article class="feature" aria-label="Featured article">
-        <div>
-          <span class="label">Latest article</span>
-          <span class="yr">2026</span>
-          <span class="jr">Pakistan Journal of Law, Analysis and Wisdom, vol 5, issue 3, pp 141–164</span>
-        </div>
-        <div>
-          <h4>Unmaking the Constitution’s Core: The Twenty-Seventh Amendment, Judicial Independence and the Basic Structure Doctrine in Pakistan</h4>
-          <p>Traces the Supreme Court of Pakistan’s move from rejecting the basic structure doctrine to recognising enforceable limits on Parliament’s constituent power, compares India, Bangladesh, Germany and Turkey, and uses the Twenty-Seventh Amendment as a stress test for judicial independence, separation of powers and civilian supremacy.</p>
-          <p class="links"><a href="https://pjlaw.com.pk/index.php/Journal/article/view/v5i3-141-164">Read in the journal</a></p>
-        </div>
-      </article>
-
-      <h3>Journal articles</h3>
-      <ol class="works">
-        <li>
-          <span class="y">2025</span>
-          <div class="w">
-            <h4>Contemporary Hydrological Weaponization: Strategic Fallout of the Indus Basin</h4>
-            <p class="meta">With Mirza Shahzaib Muhammad Khan. <i>Journal of International Law</i>, National Defence University</p>
-            <p class="links"><a href="https://jil.ndu.edu.pk/site/article/view/231">Journal</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5998594">SSRN</a></p>
-          </div>
-        </li>
-        <li>
-          <span class="y">2025</span>
-          <div class="w">
-            <h4>The Rhizomatic Enforcement of <i>Jus Cogens</i>: A Critical Appraisal through Doctrinal, TWAIL, and Postcolonial Lenses</h4>
-            <p class="meta"><i>Pakistan Journal of Law, Analysis and Wisdom</i></p>
-            <p class="links"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5906323">SSRN</a></p>
-          </div>
-        </li>
-        <li>
-          <span class="y">2025</span>
-          <div class="w">
-            <h4>Orbital Commons or Neo-Colonial Frontier; A New Paradigm of Stellar Stewardship</h4>
-            <p class="meta">With Noe Maurice Bhurgri. <i>Pakistan Journal of Law, Analysis and Wisdom</i>, vol 4, issue 9</p>
-            <p class="links"><a href="https://pjlaw.com.pk/index.php/Journal/article/view/v4i9-13-29">Journal</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5554440">SSRN</a></p>
-            <details class="cite"><summary>Cite (OSCOLA)</summary><p>Ghalib Naseer and Noe Maurice Bhurgri, ‘Orbital Commons or Neo-Colonial Frontier; A New Paradigm of Stellar Stewardship’ (2025) 4(9) Pakistan Journal of Law, Analysis and Wisdom 13</p></details>
-          </div>
-        </li>
-        <li>
-          <span class="y">2025</span>
-          <div class="w">
-            <h4>Sovereignty Beyond Earth in Equitable Space Resource Regimes</h4>
-            <p class="meta"><i>TILS Law Review</i>, vol 3, issue 2</p>
-            <p class="links"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5521121">SSRN</a></p>
-            <details class="cite"><summary>Cite (OSCOLA)</summary><p>Ghalib Naseer, ‘Sovereignty Beyond Earth in Equitable Space Resource Regimes’ (2025) 3(2) TILS Law Review</p></details>
-          </div>
-        </li>
-        <li>
-          <span class="y">2025</span>
-          <div class="w">
-            <h4>The Cost of Injustice: Reforming Pakistan’s Bail and Pre-Trial Practices in the Context of Legal Fidelity and Moral Imperatives in Law</h4>
-            <p class="meta"><i>TILS Law Review</i>, vol 3, issue 1</p>
-            <p class="links"><a href="https://doi.org/10.5281/zenodo.15446056">DOI</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5257616">SSRN</a></p>
-            <details class="cite"><summary>Cite (OSCOLA)</summary><p>Ghalib Naseer, ‘The Cost of Injustice: Reforming Pakistan’s Bail and Pre-Trial Practices in the Context of Legal Fidelity and Moral Imperatives in Law’ (2025) 3(1) TILS Law Review 15</p></details>
-          </div>
-        </li>
-        <li>
-          <span class="y">2025</span>
-          <div class="w">
-            <h4>Combating Discrimination, Violence and Harmful Practices against Intersex Persons</h4>
-            <p class="meta">With Sarah Mazhar, Ebaad Ur Rehman Saqib and Tahaam Bhatti. <i>TILS Law Review</i>, vol 3, issue 1</p>
-            <p class="links"><a href="https://tils.edu.pk/wp-content/uploads/2025/05/Combating-Discrimination-Violence-and-Harmful-Practices-against-Intersex-Persons.htm">Journal</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5261702">SSRN</a><a href="https://zenodo.org/records/15467220">Zenodo</a></p>
-            <details class="cite"><summary>Cite (OSCOLA)</summary><p>Sarah Mazhar and others, ‘Combating Discrimination, Violence and Harmful Practices against Intersex Persons’ (2025) 3(1) TILS Law Review</p></details>
-          </div>
-        </li>
-        <li>
-          <span class="y">2025</span>
-          <div class="w">
-            <h4>The Tyranny of the Headline: The Influence of Yellow Journalism on Public Perception and Political Propaganda</h4>
-            <p class="meta">With Saad Mansoor. <i>Pakistan Journal of Law, Analysis and Wisdom</i>, vol 4, issue 3</p>
-            <p class="links"><a href="https://pjlaw.com.pk/index.php/Journal/article/view/v4i3-1-11">Journal</a><a href="https://doi.org/10.5281/zenodo.15114015">DOI</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5199291">SSRN</a></p>
-            <details class="cite"><summary>Cite (OSCOLA)</summary><p>Ghalib Naseer and Saad Mansoor, ‘The Tyranny of the Headline: The Influence of Yellow Journalism on Public Perception and Political Propaganda’ (2025) 4(3) Pakistan Journal of Law, Analysis and Wisdom 1</p></details>
-          </div>
-        </li>
-        <li>
-          <span class="y">2024</span>
-          <div class="w">
-            <h4>Judicial Activism: Authority or Autocracy? Unravelling the Role of Judiciary in Pakistan</h4>
-            <p class="meta"><i>Pakistan Journal of Law, Analysis and Wisdom</i>, vol 3, issue 7</p>
-            <p class="links"><a href="https://pjlaw.com.pk/index.php/Journal/article/view/v3i7-31-50">Journal</a><a href="https://doi.org/10.5281/zenodo.13207499">DOI</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5194287">SSRN</a></p>
-            <details class="cite"><summary>Cite (OSCOLA)</summary><p>Ghalib Naseer, ‘Judicial Activism: Authority or Autocracy? Unravelling the Role of Judiciary in Pakistan’ (2024) 3(7) Pakistan Journal of Law, Analysis and Wisdom 31</p></details>
-          </div>
-        </li>
-      </ol>
-
-      <h3>Submissions and conference papers</h3>
-      <ol class="works">
-        <li>
-          <span class="y">2025</span>
-          <div class="w">
-            <h4>Combating Discrimination, Violence and Harmful Practices against Intersex Persons: Input for the High Commissioner’s Report pursuant to Human Rights Council Resolution 55/14</h4>
-            <p class="meta">Submitted by the TILS Law Review Society, Lahore, to the UN Office of the High Commissioner for Human Rights</p>
-            <p class="links"><a href="https://www.ohchr.org/sites/default/files/documents/cfi-subm/hc-hcr-res-55-14/subm-preparation-hc-hr-aca-101-tils-law-review-society-lahore.docx">OHCHR submission</a></p>
-          </div>
-        </li>
-        <li>
-          <span class="y">2024</span>
-          <div class="w">
-            <h4>The Bail Dilemma in Pakistan: Addressing Pre-Trial Detention through Legal Reform</h4>
-            <p class="meta">Presented at the 1st International Law Conference, Kahuta Law College and International Islamic University Islamabad</p>
-            <p class="links"><a href="https://youtu.be/9q46irLHP_Q">Watch the presentation</a></p>
-          </div>
-        </li>
-      </ol>
-      <h3>Research visuals</h3>
-      <ol class="works">
-        <li>
-          <span class="y">2026</span>
-          <div class="w">
-            <h4>India an Outlier in Customary International Law vis-à-vis Indus Waters Treaty</h4>
-            <p class="meta">Interactive visual. Centre of Excellence for International Law (CEIL), ISSRA, National Defence University, Islamabad</p>
-            <p class="desc">A map and state-practice scorecard comparing how water treaties in eleven river systems, among them the Nile, the Mekong, the Amazon and the Indus, have fared through conflict, with a case study of the Indus basin and its riparian positions.</p>
-            <p class="links"><a href="https://issra.pk/infographics/Infographic-Indus-Abeyance.html">View on the ISSRA website</a></p>
-          </div>
-        </li>
-      </ol>
-      <p class="footnote">Citations follow OSCOLA, the Oxford University Standard for Citation of Legal Authorities.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="commentary" aria-labelledby="commentary-h">
-    <div class="wrap">
-      <h2 id="commentary-h">Commentary</h2>
-      <div class="body">
-      <p class="intro">Columns and op-eds for general readers on the constitution, international law, security and the legal profession.</p>
-      <div class="outlet">
-        <div class="outlet-head">
-          <h3>The News International</h3>
-          <span>Opinion</span>
-        </div>
-        <ul class="columns">
-          <li><time datetime="2026-11-07">7 November 2026</time><a href="https://www.thenews.pk/print/1447248-when-the-boomerang-returns">When the Boomerang Returns</a></li>
-        </ul>
-      </div>
-
-      <div class="outlet">
-        <div class="outlet-head">
-          <h3>The Friday Times</h3>
-          <a href="https://www.thefridaytimes.com/contributor/ghalib-naseer">Contributor page</a>
-        </div>
-        <ul class="columns">
-          <li><time datetime="2026-05-05">5 May 2026</time><a href="https://www.thefridaytimes.com/05-May-2026/shakespeare-agincourt-making-modern-war-law">Shakespeare, Agincourt and the Making of Modern War Law</a></li>
-          <li><time datetime="2026-04-30">30 April 2026</time><a href="https://www.thefridaytimes.com/30-Apr-2026/taxonomy-privilege">The Taxonomy of Privilege</a></li>
-          <li><time datetime="2026-04-16">16 April 2026</time><a href="https://www.thefridaytimes.com/16-Apr-2026/shakespeare-foreshadowed-colonial-international-law">How Shakespeare Foreshadowed Colonial International Law</a></li>
-          <li><time datetime="2026-04-08">8 April 2026</time><a href="https://www.thefridaytimes.com/08-Apr-2026/islamabad-framework-pakistan-recalibration-west-asian-security">The Islamabad Framework: Pakistan and the Recalibration of West Asian Security</a></li>
-          <li><time datetime="2026-04-02">2 April 2026</time><a href="https://www.thefridaytimes.com/02-Apr-2026/modern-media-shapes-morality-challenges-legitimacy-law-society">How Modern Media Shapes Morality and Challenges the Legitimacy of Law in Society</a></li>
-          <li><time datetime="2026-03-02">2 March 2026</time><a href="https://www.thefridaytimes.com/02-Mar-2026/tehran-aftershock-pakistan-s-high-stakes-balancing-act">The Tehran Aftershock: Pakistan’s High-Stakes Balancing Act</a></li>
-        </ul>
-      </div>
-
-      <div class="outlet">
-        <div class="outlet-head">
-          <h3>LEAP Pakistan</h3>
-          <span>Legal Education Access Portal</span>
-        </div>
-        <ul class="columns">
-          <li><time datetime="2026-07-13">13 July 2026</time><a href="https://leappakistan.com/the-colonial-specter-of-punjabs-habitual-offenders-bill/">The Colonial Specter of Punjab’s Habitual Offenders Bill</a></li>
-          <li><time datetime="2026-01-02">2 January 2026</time><a href="https://leappakistan.com/the-grundnorm-of-voting-and-the-reality-of-power-pakistans-electoral-contradiction/">The Grundnorm of Voting and the Reality of Power: Pakistan’s Electoral Contradiction</a></li>
-          <li><time datetime="2025-12-19">19 December 2025</time><a href="https://leappakistan.com/the-twenty-seventh-amendment-to-the-constitution-of-pakistan-a-structural-constraint-on-judicial-activism-and-its-institutional-costs/">The Twenty-Seventh Amendment to the Constitution of Pakistan: A Structural Constraint on Judicial Activism and Its Institutional Costs</a></li>
-        </ul>
-      </div>
-
-      <div class="outlet">
-        <div class="outlet-head">
-          <h3>The Monthly Wukkla Ittehad</h3>
-          <span>Multan</span>
-        </div>
-        <ul class="columns">
-          <li><time datetime="2026-03-02">Mar 2026</time><a href="https://www.facebook.com/share/p/17DgQpWEKn/">International Criminal Law and Pakistan: Beyond Global Norms and Domestic Gaps</a></li>
-          <li><time datetime="2025-10-03">Oct 2025</time><span>The Return of Power Politics and Strain on International Law</span></li>
-          <li><time datetime="2025-09-04">Sep 2025</time><a href="https://www.facebook.com/share/p/174WAyq8rC/">Floods in Pakistan: A Crisis of Governance, Not Just Nature</a></li>
-          <li><time datetime="2025-08-04">Aug 2025</time><a href="https://www.facebook.com/share/p/15qcNjz9RU/">Why Pakistani Lawyers Remain Absent from the ICJ and ICC</a></li>
-          <li><time datetime="2025-07-04">Jul 2025</time><a href="https://www.facebook.com/share/1GeCUbkPyb/">The Juridical Entrenchment of Religious Division in Pakistan: Legal Foundations and Social Ramifications</a></li>
-          <li><time datetime="2025-06-04">Jun 2025</time><a href="https://www.facebook.com/share/p/19Vv4nMc3p/">Sovereignty in Islamic Political Thought</a></li>
-          <li><time datetime="2025-05-06">May 2025</time><a href="https://www.facebook.com/share/p/1AcjR9Cw2J/">Decolonizing International Law through a Postcolonial Lens</a></li>
-          <li><time datetime="2025-04-09">Apr 2025</time><a href="https://www.facebook.com/share/p/1BHmNF6XWD/">Regulation of Legal Ethics: Why Pakistan Needs a Stronger Bar Council Framework</a></li>
-          <li><time datetime="2025-03-05">Mar 2025</time><a href="https://www.facebook.com/share/p/1GEvLY1Nuv/">The Media’s Gavel: When Journalism Becomes Judgment</a></li>
-          <li><time datetime="2025-02-05">Feb 2025</time><a href="https://www.facebook.com/share/18sszJRD7n/">Reforming the Judicial System of Pakistan</a></li>
-        </ul>
-      </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="advocacy" aria-labelledby="advocacy-h">
-    <div class="wrap">
-      <h2 id="advocacy-h">Advocacy</h2>
-      <div class="body">
-      <p class="intro">Moot courts as a competitor, judge and organiser.</p>
-      <ol class="ledger">
-        <li>
-          <span class="d">Mar 2026</span>
-          <div class="b">
-            <h4>Participant, 50th Jean-Pictet Competition</h4>
-            <p class="desc">A week of international humanitarian law training and simulations in Batam, Indonesia and Singapore.</p>
-          </div>
-        </li>
-        <li>
-          <span class="d">Feb 2026</span>
-          <div class="b">
-            <h4>Adjudicator, 1st MDL Tax Law International Moot Court Competition</h4>
-            <p class="desc">Judged the preliminary and quarter-final rounds, held with the Federal Tax Ombudsman.</p>
-          </div>
-        </li>
-        <li>
-          <span class="d">Jan – Feb 2026</span>
-          <div class="b">
-            <h4>Director General Management, 13th PCL National Law Moot</h4>
-            <p class="desc">Pakistan College of Law, Lahore.</p>
-          </div>
-        </li>
-        <li>
-          <span class="d">Sep 2025 – Apr 2026</span>
-          <div class="b">
-            <h4>Moot Supervisor, University of Southern Punjab</h4>
-            <p class="desc">Trained students for national moot court competitions.</p>
-          </div>
-        </li>
-        <li>
-          <span class="d">2025</span>
-          <div class="b">
-            <h4>Director General, High Court Bar Association Multan Moot Committee</h4>
-            <p class="desc">Inaugural Director General. Organised Pakistan’s first moot court competition held inside a High Court, argued in real courtrooms before sitting judges. Wrote the moot problem, oversaw ten directorates and hosted 30 teams from across Pakistan.</p>
-          </div>
-        </li>
-        <li>
-          <span class="d">Feb 2025</span>
-          <div class="b">
-            <h4>Director General, 3rd National TILS Lahore Law Moot Court Competition</h4>
-            <p class="desc">Organised the competition and drafted the moot problem.</p>
-          </div>
-        </li>
-        <li>
-          <span class="d">Jan 2025</span>
-          <div class="b">
-            <h4>Philip C. Jessup International Law Moot Court Competition, Pakistan National Rounds</h4>
-            <p class="desc">Top six teams in Pakistan, Best Memorial Award, and ranked among the top five individual speakers.</p>
-          </div>
-        </li>
-        <li>
-          <span class="d">Nov 2024</span>
-          <div class="b">
-            <h4>Winner and Best Speaker, 2nd Intra TILS Lahore Law Moot Court Competition</h4>
-          </div>
-        </li>
-      </ol>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="recognition" aria-labelledby="recognition-h">
-    <div class="wrap">
-      <h2 id="recognition-h">Recognition</h2>
-      <div class="body">
-      <ul class="honours">
-        <li><strong>TEDx Speaker, TEDxGulgasht, Multan</strong><span>Selected to deliver the talk ‘The Unwritten Verdict: What Shakespeare Teaches Us About Modern Justice’.</span></li>
-        <li><strong>Shield of Honour, High Court Bar Association Multan</strong><span>For serving as Director General of the HCBAM Mooting Committee and conducting the 2025 National Law Moot Court Competition.</span></li>
-        <li><strong>Best Memorial Award, Philip C. Jessup Moot, Pakistan National Rounds 2025</strong><span>Also ranked among the top five individual speakers in Pakistan.</span></li>
-        <li><strong>Certificate of Adjudication, Federal Tax Ombudsman and Magister De Legum</strong><span>For judging the International Tax Law Moot Competition.</span></li>
-        <li><strong>Awards of Excellence, The Institute of Legal Studies (TILS), Lahore</strong><span>First in cohort in Public Law and in Contract Law.</span></li>
-        <li><strong>Certificate of Excellence in Reviewing, Asian Journal of Arts and Social Sciences</strong><span>For contributions to peer review.</span></li>
-        <li><strong>Certificate of Excellence, Kahuta Law College and International Islamic University Islamabad</strong><span>For presenting research at the 1st International Law Conference.</span></li>
-        <li><strong>Awards of Appreciation, Southern School of Law (USP) and Denning Law School, Multan</strong><span>Key speaker at mooting and oral advocacy workshops.</span></li>
-        <li><strong>Certificates of Honour and Appreciation, District Bar Association Dera Ghazi Khan and High Court Bar Association Multan</strong><span>For lectures on legal research, drafting, academia and advocacy.</span></li>
-      </ul>
+      <p class="more"><a href="career.html">Full career record, moot courts and honours</a></p>
       </div>
     </div>
   </section>
@@ -878,7 +416,7 @@ footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
     <div class="wrap">
       <h2 id="offices-h">Offices</h2>
       <div class="body">
-        <div class="firm-line">
+      <div class="firm-line">
           <img src="flc-emblem.png" width="240" height="213" alt="" loading="lazy">
           <div>
             <p class="name">FLC &amp; Associates LLP</p>
