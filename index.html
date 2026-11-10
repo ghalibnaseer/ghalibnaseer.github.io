@@ -15,9 +15,8 @@
 <meta property="profile:first_name" content="Ghalib">
 <meta property="profile:last_name" content="Naseer">
 <meta name="twitter:card" content="summary">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@400;500;600&display=swap">
+<link rel="preload" href="fonts/libre-caslon-display-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/libre-caslon-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 
 <script type="application/ld+json">
 {
@@ -28,7 +27,7 @@
       "@id": "https://ghalibnaseer.github.io/#page",
       "url": "https://ghalibnaseer.github.io/",
       "name": "Ghalib Naseer",
-      "dateModified": "2026-10-03",
+      "dateModified": "2026-11-11",
       "mainEntity": { "@id": "https://ghalibnaseer.github.io/#person" }
     },
     {
@@ -40,10 +39,22 @@
       "alternateName": ["Malik Ghalib Naseer Thaheem", "Ghalib Naseer Thaheem"],
       "url": "https://ghalibnaseer.github.io/",
       "email": "mailto:naseerghalib4701@gmail.com",
+      "telephone": "+92-308-1771166",
       "description": "Legal scholar, Partner at FLC & Associates LLP, Regional Partner at HS Legal LLP and Visiting Faculty at The Millennium Universal College (TMUC), Multan, whose work focuses on constitutionalism, international law, jurisprudence and legal theory.",
       "jobTitle": ["Partner", "Regional Partner", "Visiting Faculty"],
       "worksFor": [
-        { "@type": "Organization", "name": "FLC & Associates LLP" },
+        {
+          "@type": "LegalService",
+          "name": "FLC & Associates LLP",
+          "url": "https://flcassociates.com/",
+          "email": "info@flcassociates.com",
+          "address": [
+            { "@type": "PostalAddress", "streetAddress": "Ali Street, New North Gulgasht Colony", "addressLocality": "Multan", "addressCountry": "PK" },
+            { "@type": "PostalAddress", "streetAddress": "4-Bashir Khan Block, District and Sessions Courts", "addressLocality": "Multan", "addressCountry": "PK" },
+            { "@type": "PostalAddress", "streetAddress": "3rd Floor, Al-Ghaffar Law Building, 7-Turner Road", "addressLocality": "Lahore", "addressCountry": "PK" },
+            { "@type": "PostalAddress", "streetAddress": "Hamza Plaza, Awan Market", "addressLocality": "Rawalpindi", "addressCountry": "PK" }
+          ]
+        },
         { "@type": "Organization", "name": "HS Legal LLP" },
         { "@type": "CollegeOrUniversity", "name": "The Millennium Universal College (TMUC), Multan", "url": "https://tmuc.edu.pk/" }
       ],
@@ -75,6 +86,7 @@
         "Transboundary water law"
       ],
       "award": [
+        "TEDx Speaker, TEDxGulgasht, Multan",
         "Shield of Honour, High Court Bar Association Multan",
         "Best Memorial Award, Philip C. Jessup International Law Moot Court Competition, Pakistan National Rounds 2025",
         "Certificate of Excellence in Reviewing, Asian Journal of Arts and Social Sciences"
@@ -92,6 +104,14 @@
         "https://www.thefridaytimes.com/contributor/ghalib-naseer",
         "https://www.researchgate.net/lab/Research-Society-of-Law-IR-and-Political-Science-RSLIP-Ghalib-Naseer"
       ]
+    },
+    {
+      "@type": "OpinionNewsArticle",
+      "headline": "When the boomerang returns",
+      "author": { "@id": "https://ghalibnaseer.github.io/#person" },
+      "datePublished": "2026-11-07",
+      "url": "https://www.thenews.pk/print/1447248-when-the-boomerang-returns",
+      "publisher": { "@type": "NewsMediaOrganization", "name": "The News International" }
     },
     {
       "@type": "ScholarlyArticle",
@@ -175,451 +195,188 @@
 </script>
 
 <style>
-/* Layout: a chambers name-board hero (ink panel framed in brass, portrait in a brass ring), then an editorial grid on paper.
-   Each section opens with a § eyebrow and a Garamond title; dated material sits in a ledger with a date column. */
+@font-face { font-family: "Caslon Display"; src: url("fonts/libre-caslon-display-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Caslon Text"; src: url("fonts/libre-caslon-text-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Caslon Text"; src: url("fonts/libre-caslon-text-latin-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Franklin"; src: url("fonts/libre-franklin-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+
 :root {
-  --ink: #0f1b2d;
-  --ink-2: #0b1524;
-  --on-ink: #eef1f5;
-  --on-ink-muted: #a7b2c3;
-  --brass-ink: #c6a66b;
-
-  --paper: #f5f6f8;
-  --surface: #ffffff;
-  --fg: #142033;
-  --muted: #586376;
-  --rule: #dce1e8;
-  --brass: #84672f;
-  --brass-soft: #f2ece1;
-  --link: #1e3a63;
-
-  --serif: "EB Garamond", Garamond, "Times New Roman", serif;
-  --sans: "Jost", Futura, "Century Gothic", "Segoe UI", system-ui, sans-serif;
-
-  --max: 76rem;
-  --gutter: clamp(1rem, 4vw, 2.5rem);
   color-scheme: light;
+  --paper: #FFFFFF;
+  --stone: #F4F3F0;
+  --ink: #231F1F;
+  --muted: #5F5957;
+  --gold: #8A6126;
+  --gold-line: #B48338;
+  --rule: #DDD9D2;
+  --display: "Caslon Display", "Caslon Text", "Big Caslon", Georgia, serif;
+  --text: "Caslon Text", "Big Caslon", Georgia, serif;
+  --ui: "Franklin", "Franklin Gothic Medium", "Helvetica Neue", Arial, sans-serif;
+  --margin-col: 13rem;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --ink: #08101d;
-    --ink-2: #060c17;
-    --on-ink: #eef1f5;
-    --on-ink-muted: #a7b2c3;
-    --brass-ink: #cdae74;
-    --paper: #0c1422;
-    --surface: #121c2e;
-    --fg: #e6eaf1;
-    --muted: #9ba6b8;
-    --rule: #233049;
-    --brass: #cdae74;
-    --brass-soft: #1b2436;
-    --link: #a9c3ea;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --ink: #08101d;
-  --ink-2: #060c17;
-  --on-ink: #eef1f5;
-  --on-ink-muted: #a7b2c3;
-  --brass-ink: #cdae74;
-  --paper: #0c1422;
-  --surface: #121c2e;
-  --fg: #e6eaf1;
-  --muted: #9ba6b8;
-  --rule: #233049;
-  --brass: #cdae74;
-  --brass-soft: #1b2436;
-  --link: #a9c3ea;
-  color-scheme: dark;
-}
-
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
-body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--fg);
-  font-family: var(--sans);
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-img, svg { max-width: 100%; }
-a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
-a:hover { color: var(--brass); }
-a:focus-visible, button:focus-visible, summary:focus-visible {
-  outline: 2px solid var(--brass);
-  outline-offset: 3px;
-  border-radius: 2px;
-}
-.container { max-width: var(--max); margin: 0 auto; padding-inline: var(--gutter); padding-block: 0; }
-.skip { position: absolute; left: -999px; top: 0; background: var(--surface); color: var(--fg); padding: 0.5rem 1rem; z-index: 10; }
-.skip:focus { left: 1rem; top: 1rem; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--text); font-size: 1.0625rem; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; height: auto; }
+a { color: inherit; text-decoration-color: var(--gold-line); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+a:hover { color: var(--gold); }
+:focus-visible { outline: 2px solid var(--gold-line); outline-offset: 3px; }
+h1, h2, h3, h4, p, ul, ol, dl, dd, address { margin: 0; padding: 0; font-style: normal; }
+ul, ol { list-style: none; }
+.wrap { max-width: 72rem; margin-inline: auto; padding-inline: clamp(1.25rem, 4vw, 2.5rem); }
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: #fff; padding: 0.6rem 1rem; font-family: var(--ui); font-size: 0.9rem; z-index: 20; }
+.skip:focus { left: 0; }
 
-/* ---------- Top bar ---------- */
-.topbar {
-  position: sticky;
-  top: env(safe-area-inset-top, 0px);
-  z-index: 5;
-  background: var(--ink);
-  color: var(--on-ink);
-  border-bottom: 1px solid rgba(198, 166, 107, 0.28);
-}
-.topbar .container { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 4rem; }
-.brand { display: flex; align-items: center; gap: 0.75rem; color: var(--on-ink); text-decoration: none; flex-shrink: 0; }
-.brand:hover { color: var(--on-ink); }
-.brand-mark {
-  width: 2.25rem; height: 2.25rem;
-  display: grid; place-items: center;
-  border: 1px solid var(--brass-ink);
-  border-radius: 50%;
-  font-family: var(--serif);
-  font-size: 0.95rem;
-  letter-spacing: 0.04em;
-  color: var(--brass-ink);
-}
-.brand-name { font-family: var(--serif); font-size: 1.15rem; letter-spacing: 0.02em; }
-.nav { display: flex; gap: 1.6rem; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
-.nav a { color: var(--on-ink-muted); text-decoration: none; padding-block: 0.4rem; border-bottom: 1px solid transparent; white-space: nowrap; }
-.nav a:hover { color: var(--on-ink); border-bottom-color: var(--brass-ink); }
+/* Top bar */
+.topbar { position: sticky; top: 0; z-index: 10; background: var(--paper); border-bottom: 1px solid var(--rule); }
+.topbar .wrap { display: flex; align-items: baseline; justify-content: space-between; gap: 2rem; padding-block: 0.9rem; }
+.brand { font-family: var(--display); font-size: 1.3rem; line-height: 1.2; text-decoration: none; white-space: nowrap; }
+.nav { display: flex; gap: 1.6rem; overflow-x: auto; scrollbar-width: none; font-family: var(--ui); font-size: 0.875rem; }
+.nav::-webkit-scrollbar { display: none; }
+.nav a { text-decoration: none; color: var(--muted); white-space: nowrap; padding-block: 0.2rem; }
+.nav a:hover { color: var(--ink); }
 
-/* ---------- Hero ---------- */
-.hero { background: var(--ink); color: var(--on-ink); padding-block: clamp(2.5rem, 6vw, 4.5rem); }
-.board {
-  position: relative;
-  border: 1px solid rgba(198, 166, 107, 0.45);
-  padding: clamp(1.75rem, 5vw, 4rem);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: center;
-}
-.board::before {
-  content: "";
-  position: absolute;
-  inset: 6px;
-  border: 1px solid rgba(198, 166, 107, 0.18);
-  pointer-events: none;
-}
-.hero-copy { min-width: 0; }
-.eyebrow-ink {
-  margin: 0;
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--brass-ink);
-}
-.hero h1 {
-  margin: 1.1rem 0 0;
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(3rem, 8.5vw, 6.25rem);
-  line-height: 0.95;
-  letter-spacing: -0.015em;
-  text-wrap: balance;
-}
-.hero .styled {
-  margin: 1rem 0 0;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
-  color: var(--on-ink-muted);
-}
-.brass-rule {
-  width: 5.5rem; height: 1px;
-  margin: 1.75rem 0;
-  background: var(--brass-ink);
-  transform-origin: left;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .brass-rule { animation: draw 900ms cubic-bezier(.2,.7,.2,1) both 150ms; }
-  @keyframes draw { from { transform: scaleX(0.15); } to { transform: scaleX(1); } }
-}
-.hero .lede {
-  margin: 0;
-  max-width: 40rem;
-  font-family: var(--serif);
-  font-size: clamp(1.15rem, 2vw, 1.4rem);
-  line-height: 1.5;
-  color: var(--on-ink);
-  text-wrap: pretty;
-}
-.posts {
-  list-style: none;
-  margin: 2.25rem 0 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.5rem;
-}
-.posts li { border-top: 1px solid var(--brass-ink); padding-top: 0.85rem; min-width: 0; }
-.posts .t { display: block; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brass-ink); }
-.posts .o { display: block; margin-top: 0.3rem; font-family: var(--serif); font-size: 1.15rem; line-height: 1.3; color: var(--on-ink); }
-.posts .p { display: block; margin-top: 0.15rem; font-size: 0.88rem; color: var(--on-ink-muted); }
-.actions { margin-top: 2.25rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
-.btn {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  padding: 0.7rem 1.25rem;
-  font-family: var(--sans);
-  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
-  text-decoration: none;
-  border: 1px solid var(--brass-ink);
-  border-radius: 0;
-  cursor: pointer;
-}
-.btn-solid { background: var(--brass-ink); color: var(--ink); }
-.btn-solid:hover { background: var(--on-ink); border-color: var(--on-ink); color: var(--ink); }
-.btn-line { background: transparent; color: var(--on-ink); }
-.btn-line:hover { color: var(--ink); background: var(--brass-ink); }
+/* Hero */
+.hero { padding-block: clamp(3rem, 8vw, 6rem) clamp(3rem, 7vw, 5rem); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 21rem); gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+.hero h1 { font-family: var(--display); font-weight: 400; font-size: clamp(3.1rem, 8.4vw, 6.25rem); line-height: 0.98; letter-spacing: -0.01em; }
+.fullname { margin-top: 1rem; font-style: italic; font-size: 1.2rem; color: var(--muted); }
+.calling { margin-top: 1.75rem; max-width: 34rem; font-size: 1.2rem; line-height: 1.55; }
+.firm { margin-top: 2.25rem; padding-top: 1.75rem; border-top: 1px solid var(--ink); display: flex; align-items: center; gap: 1.1rem; max-width: 34rem; }
+.firm img { width: 4rem; height: auto; flex: none; }
+.firm-role { font-family: var(--display); font-size: 1.55rem; line-height: 1.2; }
+.firm-place { margin-top: 0.25rem; font-family: var(--ui); font-size: 0.875rem; color: var(--muted); }
+.also { margin-top: 1.25rem; max-width: 34rem; font-family: var(--ui); font-size: 0.9375rem; line-height: 1.55; color: var(--muted); }
+.also li + li { margin-top: 0.2rem; }
+.also b { font-weight: 500; color: var(--ink); }
+.actions { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.btn { display: inline-block; font-family: var(--ui); font-size: 0.9375rem; font-weight: 500; line-height: 1; padding: 0.9rem 1.3rem; border: 1px solid var(--ink); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; }
+.btn-solid { background: var(--ink); color: #fff; }
+.btn:hover { border-color: var(--gold); color: var(--gold); }
+.btn-solid:hover { background: var(--gold); color: #fff; }
+.portrait { display: block; width: 100%; }
 
-.portrait { width: clamp(14rem, 26vw, 21rem); height: auto; display: block; }
+/* Sections: heading in the margin, as in a law report */
+.section { border-top: 1px solid var(--rule); padding-block: clamp(3rem, 7vw, 5rem); }
+.section > .wrap { display: grid; grid-template-columns: var(--margin-col) minmax(0, 1fr); column-gap: clamp(2rem, 5vw, 4rem); }
+.section h2 { font-family: var(--display); font-weight: 400; font-size: 2rem; line-height: 1.15; align-self: start; position: sticky; top: 5rem; }
+.section h2::after { content: ""; display: block; width: 2.25rem; height: 1px; background: var(--gold-line); margin-top: 1rem; }
+.section[id] { scroll-margin-top: 3.5rem; }
+.intro { max-width: 40rem; color: var(--muted); margin-bottom: 2.25rem; }
+h3 { font-family: var(--text); font-weight: 400; font-style: italic; font-size: 1.35rem; line-height: 1.3; margin: 3rem 0 0.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--ink); }
+.body > h3:first-child, .intro + h3 { margin-top: 0; }
+h4 { font-family: var(--text); font-weight: 400; font-size: 1.15rem; line-height: 1.4; }
 
-/* ---------- Section strip (phones and tablets) ---------- */
-.subnav { display: none; background: var(--surface); border-bottom: 1px solid var(--rule); }
-.subnav .container { display: flex; gap: 1.5rem; overflow-x: auto; padding-block: 0.85rem; scrollbar-width: none; }
-.subnav .container::-webkit-scrollbar { display: none; }
-.subnav a { white-space: nowrap; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); text-decoration: none; }
-.subnav a:hover { color: var(--brass); }
-@media (max-width: 1020px) { .subnav { display: block; } }
+/* Profile */
+.profile { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 17rem); gap: clamp(2rem, 4vw, 3.5rem); }
+.prose p { max-width: 38rem; }
+.prose p + p { margin-top: 1.1rem; }
+.prose p:first-child { font-size: 1.2rem; line-height: 1.6; }
+.panel + .panel { margin-top: 2.25rem; }
+.panel-title { font-style: italic; font-size: 1.1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--ink); margin-bottom: 0.4rem; }
+.areas li, .creds > div { padding-block: 0.55rem; border-bottom: 1px solid var(--rule); font-size: 0.95rem; line-height: 1.45; }
+.creds dt { font-family: var(--ui); font-size: 0.8125rem; color: var(--gold); }
+.creds small { display: block; font-family: var(--ui); font-size: 0.8125rem; color: var(--muted); margin-top: 0.15rem; }
 
-/* ---------- Sections ---------- */
-.section { padding-block: clamp(3.5rem, 8vw, 6rem); border-bottom: 1px solid var(--rule); scroll-margin-top: 4.5rem; }
-.section-head { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.6rem; margin-bottom: clamp(2rem, 4vw, 3rem); max-width: 48rem; }
-.eyebrow {
-  margin: 0;
-  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--brass);
-}
-.eyebrow::before { content: "§"; font-family: var(--serif); font-size: 1.05rem; letter-spacing: 0; margin-right: 0.6rem; }
-.section h2 {
-  margin: 0;
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(2rem, 4.2vw, 3rem);
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  text-wrap: balance;
-}
-.section-intro { margin: 0.4rem 0 0; color: var(--muted); font-size: 1.02rem; max-width: 40rem; }
-h3.sub-head {
-  margin: 3rem 0 1.25rem;
-  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--muted);
-  display: flex; align-items: center; gap: 1rem;
-}
-h3.sub-head::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
-h3.sub-head:first-child { margin-top: 0; }
+/* Dated entries */
+.ledger > li, .works > li { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); column-gap: 1.5rem; padding-block: 1.15rem; border-bottom: 1px solid var(--rule); }
+.works > li { grid-template-columns: 4rem minmax(0, 1fr); }
+.ledger .d, .works .y { font-family: var(--ui); font-size: 0.875rem; color: var(--gold); padding-top: 0.3rem; font-variant-numeric: tabular-nums; }
+.org { font-style: italic; margin-top: 0.1rem; }
+.desc, .earlier { margin-top: 0.4rem; font-size: 0.97rem; line-height: 1.6; color: var(--muted); max-width: 40rem; }
+.earlier b { font-weight: 400; color: var(--ink); }
+.meta { margin-top: 0.2rem; font-size: 0.97rem; color: var(--muted); }
+.links { margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.3rem 1.25rem; font-family: var(--ui); font-size: 0.875rem; }
+.cite { margin-top: 0.5rem; font-family: var(--ui); font-size: 0.875rem; }
+.cite summary { cursor: pointer; color: var(--muted); width: fit-content; }
+.cite p { margin-top: 0.4rem; padding: 0.75rem 1rem; background: var(--stone); font-family: var(--text); font-size: 0.95rem; line-height: 1.55; }
+.footnote { margin-top: 1.5rem; font-family: var(--ui); font-size: 0.8125rem; color: var(--muted); }
 
-/* ---------- Profile ---------- */
-.profile { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4.5rem); }
-.prose p { margin: 0 0 1.15rem; font-family: var(--serif); font-size: 1.2rem; line-height: 1.65; text-wrap: pretty; }
-.prose p:first-child::first-letter {
-  float: left;
-  font-size: 3.6em;
-  line-height: 0.82;
-  padding: 0.08em 0.1em 0 0;
-  color: var(--brass);
-}
-.prose p:last-child { margin-bottom: 0; }
-.panel { background: var(--surface); border: 1px solid var(--rule); padding: 1.75rem; min-width: 0; }
-.panel + .panel { margin-top: 1.25rem; }
-.panel-title { margin: 0 0 1rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass); }
-.areas { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; }
-.areas li { position: relative; padding-left: 1.1rem; font-family: var(--serif); font-size: 1.08rem; line-height: 1.35; }
-.areas li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 5px; height: 5px; background: var(--brass); transform: rotate(45deg); }
-.creds { margin: 0; display: grid; gap: 0.9rem; }
-.creds div { min-width: 0; }
-.creds dt { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
-.creds dd { margin: 0.15rem 0 0; font-family: var(--serif); font-size: 1.08rem; line-height: 1.35; overflow-wrap: anywhere; }
-.creds dd small { display: block; margin-top: 0.15rem; font-family: var(--sans); font-size: 0.86rem; color: var(--muted); }
+/* Featured article */
+.feature { background: var(--stone); padding: clamp(1.5rem, 3vw, 2.25rem); margin-bottom: 3rem; }
+.feature .label, .feature .yr, .feature .jr { font-family: var(--ui); font-size: 0.875rem; color: var(--muted); }
+.feature .label { color: var(--gold); font-weight: 500; }
+.feature .label::after, .feature .yr::after { content: ","; }
+.feature h4 { font-family: var(--display); font-size: clamp(1.5rem, 2.6vw, 1.95rem); line-height: 1.22; margin-top: 0.75rem; max-width: 38rem; }
+.feature h4 + p { margin-top: 0.9rem; max-width: 40rem; color: var(--muted); font-size: 1rem; }
 
-/* ---------- Appointments ---------- */
-.cards { display: grid; gap: 1.25rem; }
-.cards-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.cards-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.card {
-  background: var(--surface);
-  border: 1px solid var(--rule);
-  border-top: 2px solid var(--brass);
-  padding: 1.6rem 1.6rem 1.5rem;
-  min-width: 0;
-  display: flex; flex-direction: column;
-}
-.card .when-tag { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-variant-numeric: tabular-nums; }
-.card h4 { margin: 0.7rem 0 0; font-family: var(--serif); font-weight: 500; font-size: 1.4rem; line-height: 1.2; text-wrap: balance; }
-.card .org { margin: 0.35rem 0 0; font-size: 0.98rem; color: var(--fg); }
-.card .place { margin: 0.1rem 0 0; font-size: 0.88rem; color: var(--muted); }
-.card .desc { margin: 0.9rem 0 0; font-size: 0.94rem; color: var(--muted); }
-.card .earlier { margin: auto 0 0; padding-top: 1rem; font-size: 0.88rem; color: var(--muted); }
-.card .earlier b { font-weight: 500; color: var(--fg); }
-.card .desc + .earlier, .card .place + .earlier, .card .org + .earlier { margin-top: 1rem; border-top: 1px solid var(--rule); padding-top: 0.9rem; }
+/* Commentary */
+.outlet-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.25rem 1.5rem; margin-top: 3rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--ink); }
+.outlet:first-of-type .outlet-head { margin-top: 0; }
+.outlet-head h3 { margin: 0; padding: 0; border: 0; }
+.outlet-head span, .outlet-head a { font-family: var(--ui); font-size: 0.875rem; color: var(--muted); }
+.columns > li { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); column-gap: 1.5rem; padding-block: 0.8rem; border-bottom: 1px solid var(--rule); line-height: 1.45; }
+.columns time { font-family: var(--ui); font-size: 0.875rem; color: var(--gold); padding-top: 0.2rem; font-variant-numeric: tabular-nums; }
+.columns a { text-decoration: none; }
+.columns a:hover { text-decoration: underline; }
 
-/* ---------- Ledger (dated rows) ---------- */
-.ledger { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
-.ledger > li {
-  display: grid;
-  grid-template-columns: 11rem minmax(0, 1fr);
-  gap: 1.5rem;
-  padding-block: 1.25rem;
-  border-bottom: 1px solid var(--rule);
-}
-.ledger .d { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brass); padding-top: 0.3rem; font-variant-numeric: tabular-nums; }
-.ledger .b { min-width: 0; max-width: 46rem; }
-.ledger h4 { margin: 0; font-family: var(--serif); font-weight: 500; font-size: 1.22rem; line-height: 1.3; }
-.ledger .org { margin: 0.15rem 0 0; color: var(--fg); font-size: 0.97rem; }
-.ledger .desc { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.94rem; }
+/* Recognition */
+.honours { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 3rem; }
+.honours li { padding-block: 1.1rem; border-bottom: 1px solid var(--rule); }
+.honours strong { display: block; font-weight: 400; font-size: 1.1rem; line-height: 1.4; }
+.honours span { display: block; margin-top: 0.3rem; font-size: 0.95rem; line-height: 1.55; color: var(--muted); }
 
-/* ---------- Scholarship ---------- */
-.feature {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr);
-  gap: clamp(1.5rem, 4vw, 3rem);
-  background: var(--surface);
-  border: 1px solid var(--rule);
-  padding: clamp(1.5rem, 4vw, 2.75rem);
-  margin-bottom: 2.5rem;
-}
-.feature .label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass); }
-.feature .yr { display: block; margin-top: 0.5rem; font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1; }
-.feature .jr { display: block; margin-top: 0.75rem; font-size: 0.92rem; color: var(--muted); }
-.feature h4 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: clamp(1.5rem, 3vw, 2.1rem); line-height: 1.2; text-wrap: balance; }
-.feature p { margin: 1rem 0 0; font-family: var(--serif); font-size: 1.12rem; line-height: 1.6; color: var(--muted); }
-.feature p.links { margin-top: 1.25rem; font-family: var(--sans); font-size: 0.8rem; line-height: 1.6; color: inherit; }
+/* Offices */
+.offices-band { background: var(--stone); }
+.firm-line { display: flex; align-items: center; gap: 1.1rem; padding-bottom: 1.75rem; border-bottom: 1px solid var(--ink); }
+.firm-line img { width: 4.5rem; flex: none; }
+.firm-line .name { font-family: var(--display); font-size: 1.75rem; line-height: 1.2; }
+.firm-line .sub { font-family: var(--ui); font-size: 0.875rem; color: var(--muted); margin-top: 0.2rem; }
+.offices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 3rem; }
+.offices li { padding-block: 1.35rem; border-bottom: 1px solid var(--rule); }
+.offices .where { font-family: var(--ui); font-size: 0.875rem; font-weight: 500; color: var(--gold); }
+.offices address { margin-top: 0.3rem; font-size: 1.1rem; line-height: 1.5; max-width: 20rem; }
 
-.works { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
-.works > li { display: grid; grid-template-columns: 5rem minmax(0, 1fr); gap: 1.5rem; padding-block: 1.4rem; border-bottom: 1px solid var(--rule); }
-.works .y { font-family: var(--serif); font-size: 1.4rem; line-height: 1.2; color: var(--brass); font-variant-numeric: lining-nums; }
-.works .w { min-width: 0; max-width: 50rem; }
-.works h4 { margin: 0; font-family: var(--serif); font-weight: 500; font-size: 1.25rem; line-height: 1.3; text-wrap: balance; }
-.works .meta { margin: 0.3rem 0 0; font-size: 0.93rem; color: var(--muted); }
-.works .meta i { font-family: var(--serif); font-size: 1.02rem; }
-.links { margin: 0.6rem 0 0; display: flex; flex-wrap: wrap; gap: 0.35rem 1.25rem; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
-.links a { text-decoration: none; border-bottom: 1px solid var(--rule); color: var(--link); }
-.links a:hover { border-bottom-color: var(--brass); color: var(--brass); }
-details.cite { margin-top: 0.7rem; }
-details.cite summary {
-  cursor: pointer;
-  display: inline-block;
-  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--muted);
-  list-style: none;
-}
-details.cite summary::-webkit-details-marker { display: none; }
-details.cite summary::before { content: "+ "; color: var(--brass); }
-details.cite[open] summary::before { content: "– "; }
-details.cite p {
-  margin: 0.6rem 0 0;
-  padding: 0.8rem 1rem;
-  background: var(--brass-soft);
-  border-left: 2px solid var(--brass);
-  font-family: var(--serif);
-  font-size: 1rem;
-  line-height: 1.5;
-  overflow-wrap: anywhere;
-}
-.footnote { margin: 1.5rem 0 0; font-size: 0.85rem; color: var(--muted); }
+/* Contact */
+.contact { background: var(--ink); color: #fff; padding-block: clamp(3rem, 7vw, 5rem); scroll-margin-top: 3.5rem; }
+.contact .wrap { display: grid; grid-template-columns: var(--margin-col) minmax(0, 1fr); column-gap: clamp(2rem, 5vw, 4rem); }
+.contact h2 { font-family: var(--display); font-weight: 400; font-size: 2rem; line-height: 1.15; }
+.contact h2::after { content: ""; display: block; width: 2.25rem; height: 1px; background: var(--gold-line); margin-top: 1rem; }
+.contact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 3rem; }
+.contact .note { max-width: 26rem; color: #CFCAC5; margin-bottom: 1.5rem; }
+.contact dl > div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); column-gap: 1rem; padding-block: 0.7rem; border-bottom: 1px solid #4A4443; }
+.contact dt { font-family: var(--ui); font-size: 0.875rem; color: #D2A766; padding-top: 0.2rem; }
+.contact dd { overflow-wrap: anywhere; }
+.contact a { text-decoration-color: #7A6240; }
+.contact a:hover { color: #E3BE84; }
+.contact .btn { border-color: #fff; color: #fff; }
+.contact .btn-solid { background: #fff; color: var(--ink); }
+.contact .btn:hover { border-color: #E3BE84; color: #E3BE84; }
+.contact .btn-solid:hover { background: #E3BE84; color: var(--ink); }
 
-/* ---------- Commentary ---------- */
-.outlet { margin-top: 3rem; }
-.outlet:first-of-type { margin-top: 0; }
-.outlet-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem 1.5rem; margin-bottom: 1.25rem; border-bottom: 1px solid var(--fg); padding-bottom: 0.6rem; }
-.outlet-head h3 { margin: 0; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.6rem; }
-.outlet-head span, .outlet-head a { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
-.outlet-head a { color: var(--link); text-decoration: none; border-bottom: 1px solid var(--rule); }
-.pieces { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
-.piece { min-width: 0; }
-.piece a {
-  display: flex; flex-direction: column; height: 100%;
-  background: var(--surface);
-  border: 1px solid var(--rule);
-  padding: 1.4rem 1.4rem 1.3rem;
-  text-decoration: none;
-  color: var(--fg);
-  transition: border-color 160ms ease, transform 160ms ease;
-}
-.piece a:hover { border-color: var(--brass); color: var(--fg); }
-@media (prefers-reduced-motion: no-preference) { .piece a:hover { transform: translateY(-2px); } }
-.piece time { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brass); }
-.piece strong { display: block; margin-top: 0.6rem; font-family: var(--serif); font-weight: 500; font-size: 1.22rem; line-height: 1.3; text-wrap: balance; }
-.piece .read { margin-top: auto; padding-top: 1rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
-.columns { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 3rem; }
-.columns li { break-inside: avoid; display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: 1rem; padding-block: 0.8rem; border-bottom: 1px solid var(--rule); }
-.columns time { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brass); padding-top: 0.25rem; font-variant-numeric: tabular-nums; }
-.columns a, .columns span.t { font-family: var(--serif); font-size: 1.08rem; line-height: 1.35; }
-.columns a { color: var(--fg); text-decoration: none; }
-.columns a:hover { color: var(--brass); }
+footer.site { background: var(--ink); color: #CFCAC5; border-top: 1px solid #4A4443; font-family: var(--ui); font-size: 0.8125rem; }
+footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 2rem; padding-block: 1.25rem; }
 
-/* ---------- Recognition ---------- */
-.honours { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; }
-.honours li { padding-block: 1.1rem; border-top: 1px solid var(--rule); min-width: 0; }
-.honours strong { display: block; font-family: var(--serif); font-weight: 500; font-size: 1.18rem; line-height: 1.3; }
-.honours span { display: block; margin-top: 0.25rem; font-size: 0.92rem; color: var(--muted); }
-
-/* ---------- Contact ---------- */
-.contact { background: var(--ink); color: var(--on-ink); padding-block: clamp(3.5rem, 8vw, 6rem); scroll-margin-top: 4.5rem; }
-.contact .eyebrow { color: var(--brass-ink); }
-.contact h2 { margin: 0.6rem 0 0; font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 4.2vw, 3rem); line-height: 1.1; }
-.contact-grid { margin-top: 2.5rem; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
-.email-line { margin: 0; font-family: var(--serif); font-size: clamp(1.35rem, 3.4vw, 2.2rem); line-height: 1.2; overflow-wrap: anywhere; }
-.email-line a { color: var(--on-ink); text-decoration: none; border-bottom: 1px solid var(--brass-ink); }
-.email-line a:hover { color: var(--brass-ink); }
-.contact .note { margin: 1rem 0 0; color: var(--on-ink-muted); font-size: 0.95rem; max-width: 34rem; }
-.contact .actions { margin-top: 1.5rem; }
-.profiles { margin: 0; display: grid; gap: 0; border-top: 1px solid rgba(198, 166, 107, 0.35); }
-.profiles div { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 1rem; padding-block: 0.85rem; border-bottom: 1px solid rgba(198, 166, 107, 0.2); }
-.profiles dt { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brass-ink); padding-top: 0.2rem; }
-.profiles dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
-.profiles a { color: var(--on-ink); text-decoration: none; border-bottom: 1px solid rgba(238, 241, 245, 0.25); }
-.profiles a:hover { color: var(--brass-ink); border-bottom-color: var(--brass-ink); }
-
-footer.site { background: var(--ink-2); color: var(--on-ink-muted); font-size: 0.85rem; }
-footer.site .container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 2rem; padding-block: 1.5rem; }
-footer.site span:first-child { font-family: var(--serif); font-size: 1rem; color: var(--on-ink); }
-
-/* ---------- Responsive ---------- */
-@media (max-width: 1020px) {
-  .nav { display: none; }
-  .cards-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .cards-3 > :last-child { grid-column: 1 / -1; }
-  .pieces { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .pieces-3 > :last-child { grid-column: 1 / -1; }
+@media (max-width: 60rem) {
+  .section > .wrap, .contact .wrap { grid-template-columns: minmax(0, 1fr); }
+  .section h2, .contact h2 { position: static; margin-bottom: 2rem; }
+  .profile { grid-template-columns: minmax(0, 1fr); }
 }
-@media (max-width: 860px) {
-  .board { grid-template-columns: minmax(0, 1fr); }
-  .seal-wrap { order: -1; }
-  .portrait { width: min(15rem, 70vw); margin-inline: auto; }
-  .profile, .contact-grid, .feature { grid-template-columns: minmax(0, 1fr); }
-  .posts { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
-  .honours { grid-template-columns: minmax(0, 1fr); }
-  .columns { columns: 1; }
+@media (max-width: 46rem) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); }
+  .hero-portrait { order: -1; max-width: 13rem; }
+  .honours, .offices, .contact-grid { grid-template-columns: minmax(0, 1fr); }
+  .ledger > li, .columns > li { grid-template-columns: minmax(0, 1fr); row-gap: 0.15rem; }
+  .ledger .d, .columns time { padding-top: 0; }
+  .works > li { grid-template-columns: 3.25rem minmax(0, 1fr); column-gap: 1rem; }
+  .topbar .wrap { flex-direction: column; gap: 0.4rem; padding-block: 0.7rem; }
+  .nav { width: 100%; gap: 1.25rem; }
+  .section[id], .contact { scroll-margin-top: 5.5rem; }
+  .contact dl > div { grid-template-columns: minmax(0, 1fr); }
 }
-@media (max-width: 640px) {
-  .topbar { position: static; }
-  .brand-name { font-size: 1.05rem; }
-  .cards-3, .cards-2, .pieces { grid-template-columns: minmax(0, 1fr); }
-  .cards-3 > :last-child, .pieces-3 > :last-child { grid-column: auto; }
-  .ledger > li, .works > li { grid-template-columns: minmax(0, 1fr); gap: 0.35rem; }
-  .ledger .d { padding-top: 0; }
-  .profiles div { grid-template-columns: minmax(0, 1fr); gap: 0.15rem; }
-  .prose p { font-size: 1.12rem; }
-  .board { padding: 1.5rem 1.25rem; }
+@media print {
+  .topbar, .actions { display: none; }
+  .contact, footer.site { background: #fff; color: #000; }
 }
-@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 </style>
-
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="topbar">
-  <div class="container">
-    <a class="brand" href="#top" aria-label="Ghalib Naseer, home">
-      <span class="brand-mark" aria-hidden="true">GN</span>
-      <span class="brand-name">Ghalib Naseer</span>
-    </a>
+  <div class="wrap">
+    <a class="brand" href="#top">Ghalib Naseer</a>
     <nav class="nav" aria-label="Sections">
       <a href="#profile">Profile</a>
       <a href="#appointments">Appointments</a>
@@ -627,67 +384,56 @@ footer.site span:first-child { font-family: var(--serif); font-size: 1rem; color
       <a href="#commentary">Commentary</a>
       <a href="#advocacy">Advocacy</a>
       <a href="#recognition">Recognition</a>
+      <a href="#offices">Offices</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
 
 <section class="hero" id="top" aria-label="Introduction">
-  <div class="container">
-    <div class="board">
-      <div class="hero-copy">
-        <p class="eyebrow-ink">Legal scholar · Barrister under training, Middle Temple</p>
-        <h1>Ghalib Naseer</h1>
-        <p class="styled">Malik Ghalib Naseer Thaheem</p>
-        <div class="brass-rule" aria-hidden="true"></div>
-        <p class="lede">Practitioner and scholar of constitutionalism, international law, jurisprudence and legal theory, with published work on the basic structure doctrine, <i>jus cogens</i> and transboundary water law.</p>
-        <ul class="posts" aria-label="Current positions">
-          <li><span class="t">Partner</span><span class="o">FLC &amp; Associates LLP</span><span class="p">Multan · Lahore · Islamabad</span></li>
-          <li><span class="t">Regional Partner</span><span class="o">HS Legal LLP</span><span class="p">Islamabad</span></li>
-          <li><span class="t">Visiting Faculty</span><span class="o">The Millennium Universal College</span><span class="p">TMUC, Multan</span></li>
-        </ul>
-        <div class="actions">
-          <a class="btn btn-solid" href="#contact">Get in touch</a>
-          <a class="btn btn-line" href="#scholarship">Read the scholarship</a>
+  <div class="wrap">
+    <div>
+      <h1>Ghalib Naseer</h1>
+      <p class="fullname">Malik Ghalib Naseer Thaheem</p>
+      <p class="calling">Lawyer and legal scholar working on constitutionalism, international law, jurisprudence and legal theory. Barrister under training at the Middle Temple.</p>
+      <div class="firm">
+        <img src="flc-emblem.png" width="240" height="213" alt="FLC &amp; Associates LLP emblem">
+        <div>
+          <p class="firm-role">Partner, FLC &amp; Associates LLP</p>
+          <p class="firm-place">Multan, Lahore and Rawalpindi</p>
         </div>
       </div>
-      <div class="seal-wrap">
-        <picture>
-          <source srcset="portrait.webp" type="image/webp">
-          <img class="portrait" src="portrait.png" width="800" height="834" alt="Portrait of Ghalib Naseer in a dark suit, framed by a brass ring" decoding="async" fetchpriority="high">
-        </picture>
+      <ul class="also" aria-label="Other current positions">
+        <li><b>Regional Partner</b>, HS Legal LLP, Islamabad</li>
+        <li><b>Visiting Faculty</b>, The Millennium Universal College (TMUC), Multan</li>
+      </ul>
+      <div class="actions">
+        <a class="btn btn-solid" href="#contact">Get in touch</a>
+        <a class="btn" href="#scholarship">Read the scholarship</a>
       </div>
+    </div>
+    <div class="hero-portrait">
+      <picture>
+        <source srcset="portrait.webp" type="image/webp">
+        <img class="portrait" src="portrait.png" width="800" height="834" alt="Portrait of Ghalib Naseer in a dark suit, framed by a brass ring" decoding="async" fetchpriority="high">
+      </picture>
     </div>
   </div>
 </section>
 
-<nav class="subnav" aria-label="Sections">
-  <div class="container">
-    <a href="#profile">Profile</a>
-    <a href="#appointments">Appointments</a>
-    <a href="#scholarship">Scholarship</a>
-    <a href="#commentary">Commentary</a>
-    <a href="#advocacy">Advocacy</a>
-    <a href="#recognition">Recognition</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-
-
 <main id="main">
 
   <section class="section" id="profile" aria-labelledby="profile-h">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Profile</p>
-        <h2 id="profile-h">Practice, scholarship and teaching</h2>
-      </div>
+    <div class="wrap">
+      <h2 id="profile-h">Profile</h2>
+      <div class="body">
       <div class="profile">
         <div class="prose">
           <p>Ghalib Naseer is a legal scholar. He is a Partner at FLC &amp; Associates LLP, Regional Partner at HS Legal LLP, and Visiting Faculty and Head of Moot Courts and Advocacy Initiatives at The Millennium Universal College (TMUC), Multan. He is a barrister under training at the Middle Temple.</p>
-          <p>His research covers constitutionalism, international law, jurisprudence and legal theory. He has published on the basic structure doctrine and the Twenty-Seventh Amendment, judicial activism in Pakistan, bail and pre-trial detention, the enforcement of <i>jus cogens</i>, outer-space resources, water conflict in the Indus Basin and the rights of intersex persons. He writes for <i>The Friday Times</i>, LEAP Pakistan and <i>The Monthly Wukkla Ittehad</i>.</p>
+          <p>His research covers constitutionalism, international law, jurisprudence and legal theory. He has published on the basic structure doctrine and the Twenty-Seventh Amendment, judicial activism in Pakistan, bail and pre-trial detention, the enforcement of <i>jus cogens</i>, outer-space resources, water conflict in the Indus Basin and the rights of intersex persons. He writes for <i>The Friday Times</i>, LEAP Pakistan and <i>The Monthly Wukkla Ittehad</i>, and his commentary has also appeared in <i>The News International</i>.</p>
           <p>He holds an LLB (Hons) from the University of London, which he studied for at Pakistan College of Law, Lahore. His dissertation, on Pakistan’s constitutional crises read through the Hart–Fuller debate, received a High Distinction. He has been a Researcher at the Centre of Excellence in International Law, ISSRA, National Defence University, and was the first student across The Institute of Legal Studies (TILS) campuses to be appointed Research Fellow, where he revived the <i>TILS Law Review</i> after ten years.</p>
           <p>He is active in mooting as a competitor, judge, coach and organiser, and was Director General of the High Court Bar Association Multan Moot Committee, which held Pakistan’s first moot court competition inside a High Court. He co-founded Spark of Hope, a student-led relief initiative that began after the 2022 floods.</p>
+          <p>He is a TEDx speaker, selected by TEDxGulgasht in Multan to deliver the talk ‘The Unwritten Verdict: What Shakespeare Teaches Us About Modern Justice’.</p>
         </div>
         <aside>
           <div class="panel">
@@ -715,57 +461,62 @@ footer.site span:first-child { font-family: var(--serif); font-size: 1rem; color
           </div>
         </aside>
       </div>
+      </div>
     </div>
   </section>
 
   <section class="section" id="appointments" aria-labelledby="appointments-h">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Appointments</p>
-        <h2 id="appointments-h">Current positions</h2>
-      </div>
+    <div class="wrap">
+      <h2 id="appointments-h">Appointments</h2>
+      <div class="body">
+      <h3>Practice and faculty</h3>
+      <ol class="ledger">
+        <li>
+          <span class="d">Since June 2026</span>
+          <div class="b">
+            <h4>Partner</h4>
+            <p class="org">FLC &amp; Associates LLP, Multan, Lahore and Rawalpindi</p>
+            <p class="earlier"><b>Earlier at the firm:</b> Intern, July 2025 to May 2026. Corporate drafting, legal research, criminal litigation, court filings and court appearances.</p>
+          </div>
+        </li>
+        <li>
+          <span class="d">Since August 2026</span>
+          <div class="b">
+            <h4>Regional Partner</h4>
+            <p class="org">HS Legal LLP, Islamabad</p>
+          </div>
+        </li>
+        <li>
+          <span class="d">Since September 2026</span>
+          <div class="b">
+            <h4>Visiting Faculty; Head of Moot Courts and Advocacy Initiatives</h4>
+            <p class="org">The Millennium Universal College (TMUC), Multan</p>
+            <p class="desc">Trains law students in legal research, drafting and oral advocacy, and coaches teams for international moot competitions.</p>
+          </div>
+        </li>
+      </ol>
 
-      <h3 class="sub-head">Practice and faculty</h3>
-      <div class="cards cards-3">
-        <article class="card">
-          <span class="when-tag">Since June 2026</span>
-          <h4>Partner</h4>
-          <p class="org">FLC &amp; Associates LLP</p>
-          <p class="place">Multan, Lahore and Islamabad</p>
-          <p class="earlier"><b>Earlier at the firm:</b> Intern, July 2025 to May 2026. Corporate drafting, legal research, criminal litigation, court filings and court appearances.</p>
-        </article>
-        <article class="card">
-          <span class="when-tag">Since August 2026</span>
-          <h4>Regional Partner</h4>
-          <p class="org">HS Legal LLP</p>
-          <p class="place">Islamabad</p>
-        </article>
-        <article class="card">
-          <span class="when-tag">Since September 2026</span>
-          <h4>Visiting Faculty; Head of Moot Courts and Advocacy Initiatives</h4>
-          <p class="org">The Millennium Universal College (TMUC)</p>
-          <p class="place">Multan</p>
-          <p class="desc">Trains law students in legal research, drafting and oral advocacy, and coaches teams for international moot competitions.</p>
-        </article>
-      </div>
+      <h3>Boards and memberships</h3>
+      <ol class="ledger">
+        <li>
+          <span class="d">Since July 2026</span>
+          <div class="b">
+            <h4>Director, Board of Directors</h4>
+            <p class="org">Law Students Commission Pakistan</p>
+            <p class="earlier"><b>Earlier:</b> Director of Student Affairs, October 2025 to May 2026. Led training workshops and guest lectures on oral advocacy and legal drafting.</p>
+          </div>
+        </li>
+        <li>
+          <span class="d">Since May 2025</span>
+          <div class="b">
+            <h4>Member, Young Arbitrators Group</h4>
+            <p class="org">Center for International Investment and Commercial Arbitration (CIICA)</p>
+            <p class="earlier"><b>April 2025:</b> Head of Protocols at the CIICA 10th Anniversary Conference, Islamabad, which hosted delegates from the ICC, the PCA, international arbitration firms, government and the judiciary.</p>
+          </div>
+        </li>
+      </ol>
 
-      <h3 class="sub-head">Boards and memberships</h3>
-      <div class="cards cards-2">
-        <article class="card">
-          <span class="when-tag">Since July 2026</span>
-          <h4>Director, Board of Directors</h4>
-          <p class="org">Law Students Commission Pakistan</p>
-          <p class="earlier"><b>Earlier:</b> Director of Student Affairs, October 2025 to May 2026. Led training workshops and guest lectures on oral advocacy and legal drafting.</p>
-        </article>
-        <article class="card">
-          <span class="when-tag">Since May 2025</span>
-          <h4>Member, Young Arbitrators Group</h4>
-          <p class="org">Center for International Investment and Commercial Arbitration (CIICA)</p>
-          <p class="earlier"><b>April 2025:</b> Head of Protocols at the CIICA 10th Anniversary Conference, Islamabad, which hosted delegates from the ICC, the PCA, international arbitration firms, government and the judiciary.</p>
-        </article>
-      </div>
-
-      <h3 class="sub-head">Previous appointments</h3>
+      <h3>Previous appointments</h3>
       <ol class="ledger">
         <li>
           <span class="d">Aug – Sep 2026</span>
@@ -832,17 +583,15 @@ footer.site span:first-child { font-family: var(--serif); font-size: 1rem; color
           </div>
         </li>
       </ol>
+      </div>
     </div>
   </section>
 
   <section class="section" id="scholarship" aria-labelledby="scholarship-h">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Scholarship</p>
-        <h2 id="scholarship-h">Journal articles and papers</h2>
-        <p class="section-intro">Published work on constitutional amendment, judicial power, international law and legal theory.</p>
-      </div>
-
+    <div class="wrap">
+      <h2 id="scholarship-h">Scholarship</h2>
+      <div class="body">
+      <p class="intro">Published work on constitutional amendment, judicial power, international law and legal theory.</p>
       <article class="feature" aria-label="Featured article">
         <div>
           <span class="label">Latest article</span>
@@ -856,13 +605,13 @@ footer.site span:first-child { font-family: var(--serif); font-size: 1rem; color
         </div>
       </article>
 
-      <h3 class="sub-head">Journal articles</h3>
+      <h3>Journal articles</h3>
       <ol class="works">
         <li>
           <span class="y">2025</span>
           <div class="w">
             <h4>Contemporary Hydrological Weaponization: Strategic Fallout of the Indus Basin</h4>
-            <p class="meta">With Mirza Shahzaib Muhammad Khan · <i>Journal of International Law</i>, National Defence University</p>
+            <p class="meta">With Mirza Shahzaib Muhammad Khan. <i>Journal of International Law</i>, National Defence University</p>
             <p class="links"><a href="https://jil.ndu.edu.pk/site/article/view/231">Journal</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5998594">SSRN</a></p>
           </div>
         </li>
@@ -878,7 +627,7 @@ footer.site span:first-child { font-family: var(--serif); font-size: 1rem; color
           <span class="y">2025</span>
           <div class="w">
             <h4>Orbital Commons or Neo-Colonial Frontier; A New Paradigm of Stellar Stewardship</h4>
-            <p class="meta">With Noe Maurice Bhurgri · <i>Pakistan Journal of Law, Analysis and Wisdom</i>, vol 4, issue 9</p>
+            <p class="meta">With Noe Maurice Bhurgri. <i>Pakistan Journal of Law, Analysis and Wisdom</i>, vol 4, issue 9</p>
             <p class="links"><a href="https://pjlaw.com.pk/index.php/Journal/article/view/v4i9-13-29">Journal</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5554440">SSRN</a></p>
             <details class="cite"><summary>Cite (OSCOLA)</summary><p>Ghalib Naseer and Noe Maurice Bhurgri, ‘Orbital Commons or Neo-Colonial Frontier; A New Paradigm of Stellar Stewardship’ (2025) 4(9) Pakistan Journal of Law, Analysis and Wisdom 13</p></details>
           </div>
@@ -905,7 +654,7 @@ footer.site span:first-child { font-family: var(--serif); font-size: 1rem; color
           <span class="y">2025</span>
           <div class="w">
             <h4>Combating Discrimination, Violence and Harmful Practices against Intersex Persons</h4>
-            <p class="meta">With Sarah Mazhar, Ebaad Ur Rehman Saqib and Tahaam Bhatti · <i>TILS Law Review</i>, vol 3, issue 1</p>
+            <p class="meta">With Sarah Mazhar, Ebaad Ur Rehman Saqib and Tahaam Bhatti. <i>TILS Law Review</i>, vol 3, issue 1</p>
             <p class="links"><a href="https://tils.edu.pk/wp-content/uploads/2025/05/Combating-Discrimination-Violence-and-Harmful-Practices-against-Intersex-Persons.htm">Journal</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5261702">SSRN</a><a href="https://zenodo.org/records/15467220">Zenodo</a></p>
             <details class="cite"><summary>Cite (OSCOLA)</summary><p>Sarah Mazhar and others, ‘Combating Discrimination, Violence and Harmful Practices against Intersex Persons’ (2025) 3(1) TILS Law Review</p></details>
           </div>
@@ -914,7 +663,7 @@ footer.site span:first-child { font-family: var(--serif); font-size: 1rem; color
           <span class="y">2025</span>
           <div class="w">
             <h4>The Tyranny of the Headline: The Influence of Yellow Journalism on Public Perception and Political Propaganda</h4>
-            <p class="meta">With Saad Mansoor · <i>Pakistan Journal of Law, Analysis and Wisdom</i>, vol 4, issue 3</p>
+            <p class="meta">With Saad Mansoor. <i>Pakistan Journal of Law, Analysis and Wisdom</i>, vol 4, issue 3</p>
             <p class="links"><a href="https://pjlaw.com.pk/index.php/Journal/article/view/v4i3-1-11">Journal</a><a href="https://doi.org/10.5281/zenodo.15114015">DOI</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5199291">SSRN</a></p>
             <details class="cite"><summary>Cite (OSCOLA)</summary><p>Ghalib Naseer and Saad Mansoor, ‘The Tyranny of the Headline: The Influence of Yellow Journalism on Public Perception and Political Propaganda’ (2025) 4(3) Pakistan Journal of Law, Analysis and Wisdom 1</p></details>
           </div>
@@ -930,7 +679,7 @@ footer.site span:first-child { font-family: var(--serif); font-size: 1rem; color
         </li>
       </ol>
 
-      <h3 class="sub-head">Submissions and conference papers</h3>
+      <h3>Submissions and conference papers</h3>
       <ol class="works">
         <li>
           <span class="y">2025</span>
@@ -950,15 +699,23 @@ footer.site span:first-child { font-family: var(--serif); font-size: 1rem; color
         </li>
       </ol>
       <p class="footnote">Citations follow OSCOLA, the Oxford University Standard for Citation of Legal Authorities.</p>
+      </div>
     </div>
   </section>
 
   <section class="section" id="commentary" aria-labelledby="commentary-h">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Commentary</p>
-        <h2 id="commentary-h">Columns and op-eds</h2>
-        <p class="section-intro">Writing for general readers on the constitution, international law, security and the legal profession.</p>
+    <div class="wrap">
+      <h2 id="commentary-h">Commentary</h2>
+      <div class="body">
+      <p class="intro">Columns and op-eds for general readers on the constitution, international law, security and the legal profession.</p>
+      <div class="outlet">
+        <div class="outlet-head">
+          <h3>The News International</h3>
+          <span>Opinion</span>
+        </div>
+        <ul class="columns">
+          <li><time datetime="2026-11-07">7 November 2026</time><a href="https://www.thenews.pk/print/1447248-when-the-boomerang-returns">When the Boomerang Returns</a></li>
+        </ul>
       </div>
 
       <div class="outlet">
@@ -966,13 +723,13 @@ footer.site span:first-child { font-family: var(--serif); font-size: 1rem; color
           <h3>The Friday Times</h3>
           <a href="https://www.thefridaytimes.com/contributor/ghalib-naseer">Contributor page</a>
         </div>
-        <ul class="pieces">
-          <li class="piece"><a href="https://www.thefridaytimes.com/05-May-2026/shakespeare-agincourt-making-modern-war-law"><time datetime="2026-05-05">5 May 2026</time><strong>Shakespeare, Agincourt and the Making of Modern War Law</strong><span class="read">Read</span></a></li>
-          <li class="piece"><a href="https://www.thefridaytimes.com/30-Apr-2026/taxonomy-privilege"><time datetime="2026-04-30">30 April 2026</time><strong>The Taxonomy of Privilege</strong><span class="read">Read</span></a></li>
-          <li class="piece"><a href="https://www.thefridaytimes.com/16-Apr-2026/shakespeare-foreshadowed-colonial-international-law"><time datetime="2026-04-16">16 April 2026</time><strong>How Shakespeare Foreshadowed Colonial International Law</strong><span class="read">Read</span></a></li>
-          <li class="piece"><a href="https://www.thefridaytimes.com/08-Apr-2026/islamabad-framework-pakistan-recalibration-west-asian-security"><time datetime="2026-04-08">8 April 2026</time><strong>The Islamabad Framework: Pakistan and the Recalibration of West Asian Security</strong><span class="read">Read</span></a></li>
-          <li class="piece"><a href="https://www.thefridaytimes.com/02-Apr-2026/modern-media-shapes-morality-challenges-legitimacy-law-society"><time datetime="2026-04-02">2 April 2026</time><strong>How Modern Media Shapes Morality and Challenges the Legitimacy of Law in Society</strong><span class="read">Read</span></a></li>
-          <li class="piece"><a href="https://www.thefridaytimes.com/02-Mar-2026/tehran-aftershock-pakistan-s-high-stakes-balancing-act"><time datetime="2026-03-02">2 March 2026</time><strong>The Tehran Aftershock: Pakistan’s High-Stakes Balancing Act</strong><span class="read">Read</span></a></li>
+        <ul class="columns">
+          <li><time datetime="2026-05-05">5 May 2026</time><a href="https://www.thefridaytimes.com/05-May-2026/shakespeare-agincourt-making-modern-war-law">Shakespeare, Agincourt and the Making of Modern War Law</a></li>
+          <li><time datetime="2026-04-30">30 April 2026</time><a href="https://www.thefridaytimes.com/30-Apr-2026/taxonomy-privilege">The Taxonomy of Privilege</a></li>
+          <li><time datetime="2026-04-16">16 April 2026</time><a href="https://www.thefridaytimes.com/16-Apr-2026/shakespeare-foreshadowed-colonial-international-law">How Shakespeare Foreshadowed Colonial International Law</a></li>
+          <li><time datetime="2026-04-08">8 April 2026</time><a href="https://www.thefridaytimes.com/08-Apr-2026/islamabad-framework-pakistan-recalibration-west-asian-security">The Islamabad Framework: Pakistan and the Recalibration of West Asian Security</a></li>
+          <li><time datetime="2026-04-02">2 April 2026</time><a href="https://www.thefridaytimes.com/02-Apr-2026/modern-media-shapes-morality-challenges-legitimacy-law-society">How Modern Media Shapes Morality and Challenges the Legitimacy of Law in Society</a></li>
+          <li><time datetime="2026-03-02">2 March 2026</time><a href="https://www.thefridaytimes.com/02-Mar-2026/tehran-aftershock-pakistan-s-high-stakes-balancing-act">The Tehran Aftershock: Pakistan’s High-Stakes Balancing Act</a></li>
         </ul>
       </div>
 
@@ -981,10 +738,10 @@ footer.site span:first-child { font-family: var(--serif); font-size: 1rem; color
           <h3>LEAP Pakistan</h3>
           <span>Legal Education Access Portal</span>
         </div>
-        <ul class="pieces pieces-3">
-          <li class="piece"><a href="https://leappakistan.com/the-colonial-specter-of-punjabs-habitual-offenders-bill/"><time datetime="2026-07-13">13 July 2026</time><strong>The Colonial Specter of Punjab’s Habitual Offenders Bill</strong><span class="read">Read</span></a></li>
-          <li class="piece"><a href="https://leappakistan.com/the-grundnorm-of-voting-and-the-reality-of-power-pakistans-electoral-contradiction/"><time datetime="2026-01-02">2 January 2026</time><strong>The Grundnorm of Voting and the Reality of Power: Pakistan’s Electoral Contradiction</strong><span class="read">Read</span></a></li>
-          <li class="piece"><a href="https://leappakistan.com/the-twenty-seventh-amendment-to-the-constitution-of-pakistan-a-structural-constraint-on-judicial-activism-and-its-institutional-costs/"><time datetime="2025-12-19">19 December 2025</time><strong>The Twenty-Seventh Amendment to the Constitution of Pakistan: A Structural Constraint on Judicial Activism and Its Institutional Costs</strong><span class="read">Read</span></a></li>
+        <ul class="columns">
+          <li><time datetime="2026-07-13">13 July 2026</time><a href="https://leappakistan.com/the-colonial-specter-of-punjabs-habitual-offenders-bill/">The Colonial Specter of Punjab’s Habitual Offenders Bill</a></li>
+          <li><time datetime="2026-01-02">2 January 2026</time><a href="https://leappakistan.com/the-grundnorm-of-voting-and-the-reality-of-power-pakistans-electoral-contradiction/">The Grundnorm of Voting and the Reality of Power: Pakistan’s Electoral Contradiction</a></li>
+          <li><time datetime="2025-12-19">19 December 2025</time><a href="https://leappakistan.com/the-twenty-seventh-amendment-to-the-constitution-of-pakistan-a-structural-constraint-on-judicial-activism-and-its-institutional-costs/">The Twenty-Seventh Amendment to the Constitution of Pakistan: A Structural Constraint on Judicial Activism and Its Institutional Costs</a></li>
         </ul>
       </div>
 
@@ -995,7 +752,7 @@ footer.site span:first-child { font-family: var(--serif); font-size: 1rem; color
         </div>
         <ul class="columns">
           <li><time datetime="2026-03-02">Mar 2026</time><a href="https://www.facebook.com/share/p/17DgQpWEKn/">International Criminal Law and Pakistan: Beyond Global Norms and Domestic Gaps</a></li>
-          <li><time datetime="2025-10-03">Oct 2025</time><span class="t">The Return of Power Politics and Strain on International Law</span></li>
+          <li><time datetime="2025-10-03">Oct 2025</time><span>The Return of Power Politics and Strain on International Law</span></li>
           <li><time datetime="2025-09-04">Sep 2025</time><a href="https://www.facebook.com/share/p/174WAyq8rC/">Floods in Pakistan: A Crisis of Governance, Not Just Nature</a></li>
           <li><time datetime="2025-08-04">Aug 2025</time><a href="https://www.facebook.com/share/p/15qcNjz9RU/">Why Pakistani Lawyers Remain Absent from the ICJ and ICC</a></li>
           <li><time datetime="2025-07-04">Jul 2025</time><a href="https://www.facebook.com/share/1GeCUbkPyb/">The Juridical Entrenchment of Religious Division in Pakistan: Legal Foundations and Social Ramifications</a></li>
@@ -1006,15 +763,15 @@ footer.site span:first-child { font-family: var(--serif); font-size: 1rem; color
           <li><time datetime="2025-02-05">Feb 2025</time><a href="https://www.facebook.com/share/18sszJRD7n/">Reforming the Judicial System of Pakistan</a></li>
         </ul>
       </div>
+      </div>
     </div>
   </section>
 
   <section class="section" id="advocacy" aria-labelledby="advocacy-h">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Advocacy</p>
-        <h2 id="advocacy-h">Moot courts: competing, judging and organising</h2>
-      </div>
+    <div class="wrap">
+      <h2 id="advocacy-h">Advocacy</h2>
+      <div class="body">
+      <p class="intro">Moot courts as a competitor, judge and organiser.</p>
       <ol class="ledger">
         <li>
           <span class="d">Mar 2026</span>
@@ -1072,16 +829,16 @@ footer.site span:first-child { font-family: var(--serif); font-size: 1rem; color
           </div>
         </li>
       </ol>
+      </div>
     </div>
   </section>
 
   <section class="section" id="recognition" aria-labelledby="recognition-h">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Recognition</p>
-        <h2 id="recognition-h">Honours and awards</h2>
-      </div>
+    <div class="wrap">
+      <h2 id="recognition-h">Recognition</h2>
+      <div class="body">
       <ul class="honours">
+        <li><strong>TEDx Speaker, TEDxGulgasht, Multan</strong><span>Selected to deliver the talk ‘The Unwritten Verdict: What Shakespeare Teaches Us About Modern Justice’.</span></li>
         <li><strong>Shield of Honour, High Court Bar Association Multan</strong><span>For serving as Director General of the HCBAM Mooting Committee and conducting the 2025 National Law Moot Court Competition.</span></li>
         <li><strong>Best Memorial Award, Philip C. Jessup Moot, Pakistan National Rounds 2025</strong><span>Also ranked among the top five individual speakers in Pakistan.</span></li>
         <li><strong>Certificate of Adjudication, Federal Tax Ombudsman and Magister De Legum</strong><span>For judging the International Tax Law Moot Competition.</span></li>
@@ -1091,22 +848,48 @@ footer.site span:first-child { font-family: var(--serif); font-size: 1rem; color
         <li><strong>Awards of Appreciation, Southern School of Law (USP) and Denning Law School, Multan</strong><span>Key speaker at mooting and oral advocacy workshops.</span></li>
         <li><strong>Certificates of Honour and Appreciation, District Bar Association Dera Ghazi Khan and High Court Bar Association Multan</strong><span>For lectures on legal research, drafting, academia and advocacy.</span></li>
       </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section offices-band" id="offices" aria-labelledby="offices-h">
+    <div class="wrap">
+      <h2 id="offices-h">Offices</h2>
+      <div class="body">
+        <div class="firm-line">
+          <img src="flc-emblem.png" width="240" height="213" alt="" loading="lazy">
+          <div>
+            <p class="name">FLC &amp; Associates LLP</p>
+            <p class="sub">Barristers, Lawyers and Consultants</p>
+          </div>
+        </div>
+        <ul class="offices">
+          <li><p class="where">Head Office, Multan</p><address>Ali Street, New North Gulgasht Colony, Multan</address></li>
+          <li><p class="where">Multan Courts</p><address>4-Bashir Khan Block, District and Sessions Courts, Multan</address></li>
+          <li><p class="where">Lahore</p><address>3rd Floor, Al-Ghaffar Law Building, <span style="white-space:nowrap">7-Turner Road</span>, Lahore</address></li>
+          <li><p class="where">Rawalpindi</p><address>Hamza Plaza, Awan Market, Rawalpindi</address></li>
+        </ul>
+      </div>
     </div>
   </section>
 
 </main>
 
 <section class="contact" id="contact" aria-labelledby="contact-h">
-  <div class="container">
-    <p class="eyebrow">Correspondence</p>
-    <h2 id="contact-h">Get in touch</h2>
+  <div class="wrap">
+    <h2 id="contact-h">Contact</h2>
     <div class="contact-grid">
       <div>
-        <p class="email-line"><a href="mailto:naseerghalib4701@gmail.com" id="email-text">naseerghalib4701@gmail.com</a></p>
         <p class="note">For legal enquiries, speaking and teaching invitations, moot adjudication and research collaboration.</p>
+        <dl>
+          <div><dt>Telephone</dt><dd><a href="tel:+923081771166">+92 308 1771166</a></dd></div>
+          <div><dt>Firm</dt><dd><a href="mailto:info@flcassociates.com">info@flcassociates.com</a></dd></div>
+          <div><dt>Personal</dt><dd><a href="mailto:naseerghalib4701@gmail.com" id="email-text">naseerghalib4701@gmail.com</a></dd></div>
+          <div><dt>Website</dt><dd><a href="https://flcassociates.com/">flcassociates.com</a></dd></div>
+        </dl>
         <div class="actions">
           <a class="btn btn-solid" href="mailto:naseerghalib4701@gmail.com">Write an email</a>
-          <button class="btn btn-line" type="button" data-copy="naseerghalib4701@gmail.com">Copy address</button>
+          <button class="btn" type="button" data-copy="naseerghalib4701@gmail.com">Copy address</button>
         </div>
       </div>
       <dl class="profiles">
@@ -1125,9 +908,9 @@ footer.site span:first-child { font-family: var(--serif); font-size: 1rem; color
 </section>
 
 <footer class="site">
-  <div class="container">
-    <span>Ghalib Naseer</span>
-    <span>© 2026 · Last updated <time datetime="2026-10-03">3 October 2026</time></span>
+  <div class="wrap">
+    <span>© 2026 Ghalib Naseer</span>
+    <span>Last updated <time datetime="2026-11-11">11 November 2026</time></span>
   </div>
 </footer>
 
